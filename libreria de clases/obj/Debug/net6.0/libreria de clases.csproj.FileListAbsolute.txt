@@ -1,0 +1,11 @@
+C:\Users\lande\source\repos\Landeira.Agustin\libreria de clases\bin\Debug\net6.0\libreria de clases.deps.json
+C:\Users\lande\source\repos\Landeira.Agustin\libreria de clases\bin\Debug\net6.0\libreria de clases.dll
+C:\Users\lande\source\repos\Landeira.Agustin\libreria de clases\bin\Debug\net6.0\libreria de clases.pdb
+C:\Users\lande\source\repos\Landeira.Agustin\libreria de clases\obj\Debug\net6.0\libreria de clases.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lande\source\repos\Landeira.Agustin\libreria de clases\obj\Debug\net6.0\libreria de clases.AssemblyInfoInputs.cache
+C:\Users\lande\source\repos\Landeira.Agustin\libreria de clases\obj\Debug\net6.0\libreria de clases.AssemblyInfo.cs
+C:\Users\lande\source\repos\Landeira.Agustin\libreria de clases\obj\Debug\net6.0\libreria de clases.csproj.CoreCompileInputs.cache
+C:\Users\lande\source\repos\Landeira.Agustin\libreria de clases\obj\Debug\net6.0\libreria de clases.dll
+C:\Users\lande\source\repos\Landeira.Agustin\libreria de clases\obj\Debug\net6.0\refint\libreria de clases.dll
+C:\Users\lande\source\repos\Landeira.Agustin\libreria de clases\obj\Debug\net6.0\libreria de clases.pdb
+C:\Users\lande\source\repos\Landeira.Agustin\libreria de clases\obj\Debug\net6.0\ref\libreria de clases.dll

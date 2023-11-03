@@ -1,0 +1,26 @@
+C:\Users\lande\source\repos\Landeira.Agustin\formulario(login)\bin\Debug\net6.0-windows\formularios.exe
+C:\Users\lande\source\repos\Landeira.Agustin\formulario(login)\bin\Debug\net6.0-windows\formularios.deps.json
+C:\Users\lande\source\repos\Landeira.Agustin\formulario(login)\bin\Debug\net6.0-windows\formularios.runtimeconfig.json
+C:\Users\lande\source\repos\Landeira.Agustin\formulario(login)\bin\Debug\net6.0-windows\formularios.dll
+C:\Users\lande\source\repos\Landeira.Agustin\formulario(login)\bin\Debug\net6.0-windows\formularios.pdb
+C:\Users\lande\source\repos\Landeira.Agustin\formulario(login)\bin\Debug\net6.0-windows\libreria de clases.dll
+C:\Users\lande\source\repos\Landeira.Agustin\formulario(login)\bin\Debug\net6.0-windows\libreria de clases.pdb
+C:\Users\lande\source\repos\Landeira.Agustin\formulario(login)\obj\Debug\net6.0-windows\formularios.csproj.AssemblyReference.cache
+C:\Users\lande\source\repos\Landeira.Agustin\formulario(login)\obj\Debug\net6.0-windows\formulario_login_.Login.resources
+C:\Users\lande\source\repos\Landeira.Agustin\formulario(login)\obj\Debug\net6.0-windows\formularios.csproj.GenerateResource.cache
+C:\Users\lande\source\repos\Landeira.Agustin\formulario(login)\obj\Debug\net6.0-windows\formularios.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lande\source\repos\Landeira.Agustin\formulario(login)\obj\Debug\net6.0-windows\formularios.AssemblyInfoInputs.cache
+C:\Users\lande\source\repos\Landeira.Agustin\formulario(login)\obj\Debug\net6.0-windows\formularios.AssemblyInfo.cs
+C:\Users\lande\source\repos\Landeira.Agustin\formulario(login)\obj\Debug\net6.0-windows\formularios.csproj.CoreCompileInputs.cache
+C:\Users\lande\source\repos\Landeira.Agustin\formulario(login)\obj\Debug\net6.0-windows\formularios.csproj.CopyComplete
+C:\Users\lande\source\repos\Landeira.Agustin\formulario(login)\obj\Debug\net6.0-windows\formularios.dll
+C:\Users\lande\source\repos\Landeira.Agustin\formulario(login)\obj\Debug\net6.0-windows\refint\formularios.dll
+C:\Users\lande\source\repos\Landeira.Agustin\formulario(login)\obj\Debug\net6.0-windows\formularios.pdb
+C:\Users\lande\source\repos\Landeira.Agustin\formulario(login)\obj\Debug\net6.0-windows\formularios.genruntimeconfig.cache
+C:\Users\lande\source\repos\Landeira.Agustin\formulario(login)\obj\Debug\net6.0-windows\ref\formularios.dll
+C:\Users\lande\source\repos\Landeira.Agustin\formulario(login)\obj\Debug\net6.0-windows\formulario_login_.FmrRegistro.resources
+C:\Users\lande\source\repos\Landeira.Agustin\formulario(login)\obj\Debug\net6.0-windows\formulario_login_.FmrOpciones.resources
+C:\Users\lande\source\repos\Landeira.Agustin\formulario(login)\obj\Debug\net6.0-windows\formulario_login_.FmrFutbol.resources
+C:\Users\lande\source\repos\Landeira.Agustin\formulario(login)\obj\Debug\net6.0-windows\formulario_login_.FmrBasket.resources
+C:\Users\lande\source\repos\Landeira.Agustin\formulario(login)\obj\Debug\net6.0-windows\formulario_login_.FmrBeisbol.resources
+C:\Users\lande\source\repos\Landeira.Agustin\formulario(login)\obj\Debug\net6.0-windows\formulario_login_.FormUsuariosLogeados.resources
