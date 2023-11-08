@@ -114,6 +114,7 @@ namespace libreria_de_clases
         public override bool Equals(object? obj)
         {
             bool retorno = false;
+          
             if (obj is JugadorDeBasket)
             {
                 retorno = this == (JugadorDeBasket)obj;
@@ -170,8 +171,8 @@ namespace libreria_de_clases
         /// <summary>
         /// invoca al operador ==
         /// </summary>
-        /// <param name="j1">seria el primer jugador de basket</param>
-        /// <param name="j2">seria el segundo jugadorr de futbol</param>
+        /// <param name="j1">seria el primer jugador de futbol</param>
+        /// <param name="j2">seria el segundo jugadorr de basket</param>
         /// <returns>te devuelve el bool contrario a lo que te devuelva el operador ==</returns>
         public static bool operator !=(JugadorDeBasket j1, JugadorDeFutbol j2)
         {
