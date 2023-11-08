@@ -5,8 +5,6 @@ VisualStudioVersion = 17.7.34024.191
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "libreria de clases", "libreria de clases\libreria de clases.csproj", "{8DFDCC27-776B-4AFE-BEBE-70E7A7E51297}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "main", "main\main.csproj", "{434DE680-9CDD-4344-8BCD-499EA971CDAA}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "formularios", "formulario(login)\formularios.csproj", "{8ACC6A9E-39D8-49E5-A2BF-D722E788939E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pruebas de testeos", "pruebas de testeos\pruebas de testeos.csproj", "{3DC80F27-D039-40C4-8376-1113A84339F4}"
@@ -21,10 +19,6 @@ Global
 		{8DFDCC27-776B-4AFE-BEBE-70E7A7E51297}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8DFDCC27-776B-4AFE-BEBE-70E7A7E51297}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8DFDCC27-776B-4AFE-BEBE-70E7A7E51297}.Release|Any CPU.Build.0 = Release|Any CPU
-		{434DE680-9CDD-4344-8BCD-499EA971CDAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{434DE680-9CDD-4344-8BCD-499EA971CDAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{434DE680-9CDD-4344-8BCD-499EA971CDAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{434DE680-9CDD-4344-8BCD-499EA971CDAA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8ACC6A9E-39D8-49E5-A2BF-D722E788939E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8ACC6A9E-39D8-49E5-A2BF-D722E788939E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8ACC6A9E-39D8-49E5-A2BF-D722E788939E}.Release|Any CPU.ActiveCfg = Release|Any CPU
