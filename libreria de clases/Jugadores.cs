@@ -6,7 +6,7 @@ namespace libreria_de_clases
     [XmlInclude(typeof(JugadorDeFutbol))]
     [XmlInclude(typeof(JugadorDeBasket))]
     [XmlInclude(typeof(JugadorDeBeisbol))]
-    public abstract class Jugadores // clase base
+    public abstract class Jugadores: IJugador // clase base
     {
         public int partidosJugados;
         public string nombre;
@@ -69,13 +69,25 @@ namespace libreria_de_clases
             
         }
 
+        #region aplicando interfaz de forma explicit e inplicit
+        public string Profesion()
+        {
+            return $"su profecion es: {this.deporte}.Llamaste este metodo de forma implicita";
+        }
+
+         string IJugador.Profesion()
+        {
+            return $"su profesion es {this.Deporte}.Llamaste este metodo de forma Explicita";
+        }
+
+        #endregion
+
         public abstract string CalcularPromedio(); // metodo abstracto de la clase base
         
         public virtual string Mostrar() // metodo virtual
         {
             return "Se desconoce las habilidades..";
             
-
 
         }
         /// <summary>

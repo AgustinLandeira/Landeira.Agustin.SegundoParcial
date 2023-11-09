@@ -1,0 +1,91 @@
+{
+  "version": 3,
+  "targets": {
+    "net6.0": {
+      "libreria de clases/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/libreria de clases.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/libreria de clases.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "libreria de clases/1.0.0": {
+      "type": "project",
+      "path": "../libreria de clases/libreria de clases.csproj",
+      "msbuildProject": "../libreria de clases/libreria de clases.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net6.0": [
+      "libreria de clases >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\lande\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\lande\\source\\repos\\Landeira.Agustin\\principal\\principal.csproj",
+      "projectName": "principal",
+      "projectPath": "C:\\Users\\lande\\source\\repos\\Landeira.Agustin\\principal\\principal.csproj",
+      "packagesPath": "C:\\Users\\lande\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\lande\\source\\repos\\Landeira.Agustin\\principal\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\lande\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net6.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "projectReferences": {
+            "C:\\Users\\lande\\source\\repos\\Landeira.Agustin\\libreria de clases\\libreria de clases.csproj": {
+              "projectPath": "C:\\Users\\lande\\source\\repos\\Landeira.Agustin\\libreria de clases\\libreria de clases.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net6.0": {
+        "targetAlias": "net6.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

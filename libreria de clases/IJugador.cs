@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace libreria_de_clases
 {
-    public interface IPromedio
+    public interface IJugador
     {
-
+        string Profesion();
     }
 }

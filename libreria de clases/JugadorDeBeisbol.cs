@@ -58,6 +58,11 @@ namespace libreria_de_clases
         }
         #endregion
 
+        #region aplicando interfaz
+
+        #endregion
+
+
         #region metodo abstracto y virtual
         /// <summary>
         /// calcula el promedio de las vueltas que hizo durante su carrera

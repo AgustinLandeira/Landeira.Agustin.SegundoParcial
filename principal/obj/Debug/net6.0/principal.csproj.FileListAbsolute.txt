@@ -1,0 +1,18 @@
+C:\Users\lande\source\repos\Landeira.Agustin\principal\bin\Debug\net6.0\principal.exe
+C:\Users\lande\source\repos\Landeira.Agustin\principal\bin\Debug\net6.0\principal.deps.json
+C:\Users\lande\source\repos\Landeira.Agustin\principal\bin\Debug\net6.0\principal.runtimeconfig.json
+C:\Users\lande\source\repos\Landeira.Agustin\principal\bin\Debug\net6.0\principal.dll
+C:\Users\lande\source\repos\Landeira.Agustin\principal\bin\Debug\net6.0\principal.pdb
+C:\Users\lande\source\repos\Landeira.Agustin\principal\bin\Debug\net6.0\libreria de clases.dll
+C:\Users\lande\source\repos\Landeira.Agustin\principal\bin\Debug\net6.0\libreria de clases.pdb
+C:\Users\lande\source\repos\Landeira.Agustin\principal\obj\Debug\net6.0\principal.csproj.AssemblyReference.cache
+C:\Users\lande\source\repos\Landeira.Agustin\principal\obj\Debug\net6.0\principal.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lande\source\repos\Landeira.Agustin\principal\obj\Debug\net6.0\principal.AssemblyInfoInputs.cache
+C:\Users\lande\source\repos\Landeira.Agustin\principal\obj\Debug\net6.0\principal.AssemblyInfo.cs
+C:\Users\lande\source\repos\Landeira.Agustin\principal\obj\Debug\net6.0\principal.csproj.CoreCompileInputs.cache
+C:\Users\lande\source\repos\Landeira.Agustin\principal\obj\Debug\net6.0\principal.csproj.CopyComplete
+C:\Users\lande\source\repos\Landeira.Agustin\principal\obj\Debug\net6.0\principal.dll
+C:\Users\lande\source\repos\Landeira.Agustin\principal\obj\Debug\net6.0\refint\principal.dll
+C:\Users\lande\source\repos\Landeira.Agustin\principal\obj\Debug\net6.0\principal.pdb
+C:\Users\lande\source\repos\Landeira.Agustin\principal\obj\Debug\net6.0\principal.genruntimeconfig.cache
+C:\Users\lande\source\repos\Landeira.Agustin\principal\obj\Debug\net6.0\ref\principal.dll
