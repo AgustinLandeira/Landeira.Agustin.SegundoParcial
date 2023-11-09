@@ -20,7 +20,7 @@ namespace formulario_login_
     {
         private List<Jugadores> jugadores;
         private Login logeado;
-        private Registro registro;
+        private Registro<Jugadores> registro;
 
         /// <summary>
         /// crea una instancia 
@@ -33,7 +33,7 @@ namespace formulario_login_
             this.jugadores = new List<Jugadores>();
             InitializeComponent();
             this.logeado = login;
-            this.registro = new Registro();
+            this.registro = new Registro<Jugadores>();
 
 
         }
@@ -260,24 +260,24 @@ namespace formulario_login_
         {
             if (this.BtnRadioEdadAsc.Checked == true)
             {
-                this.registro.ListaJugadores.Sort(Registro.OrdenarPorAñosAsc);
+                this.registro.ListaJugadores.Sort(Registro<Jugadores>.OrdenarPorAñosAsc);
                 ActualizarRegistro();
 
             }
             else if (this.BtnRadioEdadDesc.Checked == true)
             {
-                this.registro.ListaJugadores.Sort(Registro.OrdenarPorAñosDesc);
+                this.registro.ListaJugadores.Sort(Registro<Jugadores>.OrdenarPorAñosDesc);
                 ActualizarRegistro();
 
             }
             else if (this.BtnRadioPartAsc.Checked == true)
             {
-                this.registro.ListaJugadores.Sort(Registro.OrdenarPorPartidosJugadosAsc);
+                this.registro.ListaJugadores.Sort(Registro<Jugadores>.OrdenarPorPartidosJugadosAsc);
                 ActualizarRegistro();
             }
             else
             {
-                this.registro.ListaJugadores.Sort(Registro.OrdenarPorPartidosJugadosDes);
+                this.registro.ListaJugadores.Sort(Registro<Jugadores>.OrdenarPorPartidosJugadosDes);
                 ActualizarRegistro();
             }
         }

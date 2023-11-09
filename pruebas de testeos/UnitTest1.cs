@@ -47,7 +47,7 @@ namespace pruebas_de_testeos
         public void VerificarListaNoNula()
         {
             JugadorDeBeisbol beisbolista = new JugadorDeBeisbol("bate",23,34,"barry","alen",21,EDeporte.Beisbol);
-            Registro miRegistro = new Registro();
+            Registro<Jugadores> miRegistro = new Registro<Jugadores>();
 
             
             List<Jugadores> lista = miRegistro.ListaJugadores;
