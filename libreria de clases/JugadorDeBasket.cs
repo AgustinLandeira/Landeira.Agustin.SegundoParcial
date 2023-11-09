@@ -151,7 +151,7 @@ namespace libreria_de_clases
         /// <returns>retorna un true si tienen los mismo datos o de lo contrario un false</returns>
         public static bool operator ==(JugadorDeBasket j1, JugadorDeBasket j2)
         {
-            return j1.Nombre == j2.Nombre && j1.Apellido == j2.Apellido;
+            return ((IJugador)j1).Nombre == ((IJugador)j2).Nombre && ((IJugador)j1).Apellido == ((IJugador)j2).Apellido;
         }
         /// <summary>
         /// te invoca el operador ==
@@ -171,7 +171,7 @@ namespace libreria_de_clases
         /// <returns>retorna un true si tienen los mismo datos o de lo contrario un false</returns>
         public static bool operator ==(JugadorDeBasket j1, JugadorDeFutbol j2)
         {
-            return j1.Nombre == j2.Nombre && j1.Apellido == j2.Apellido;
+            return ((IJugador)j1).Nombre == ((IJugador)j2).Nombre && ((IJugador)j1).Apellido == ((IJugador)j2).Apellido;
         }
 
         /// <summary>
@@ -192,7 +192,7 @@ namespace libreria_de_clases
         /// <returns>retorna un true si tienen los mismo datos o de lo contrario un false</returns>
         public static bool operator ==(JugadorDeBasket j1, JugadorDeBeisbol j2)
         {
-            return j1.Nombre == j2.Nombre && j1.Apellido == j2.Apellido;
+            return ((IJugador)j1).Nombre == ((IJugador)j2).Nombre && ((IJugador)j1).Apellido == ((IJugador)j2).Apellido;
         }
         /// <summary>
         /// invoca al operador ==

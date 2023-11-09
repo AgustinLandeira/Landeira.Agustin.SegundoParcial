@@ -9,6 +9,10 @@ namespace libreria_de_clases
     public interface IJugador
     {
         string Profesion();
-        string CalcularPromedio();
+        
+        string Nombre {  get; }
+        string Apellido {  get; }
+
+        short Años {  get; }
     }
 }

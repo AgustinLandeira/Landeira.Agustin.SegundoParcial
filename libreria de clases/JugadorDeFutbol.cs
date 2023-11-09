@@ -132,7 +132,7 @@ namespace libreria_de_clases
         /// <returns>te devuelve true si la comparacion da resultado de lo contrario un false</returns>
         public static bool operator ==(JugadorDeFutbol j1, JugadorDeFutbol j2)
         {
-            return j1.Nombre == j2.Nombre && j1.Apellido == j2.Apellido;
+            return ((IJugador)j1).Nombre == ((IJugador)j2).Nombre && ((IJugador)j1).Apellido == ((IJugador)j2).Apellido;
         }
 
         /// <summary>
@@ -154,7 +154,7 @@ namespace libreria_de_clases
         /// <returns>te devuelve true si la comparacion da resultado de lo contrario un false</returns>
         public static bool operator ==(JugadorDeFutbol j1, JugadorDeBasket j2)
         {
-            return j1.Nombre == j2.Nombre && j1.Apellido == j2.Apellido;
+            return ((IJugador)j1).Nombre == ((IJugador)j2).Nombre && ((IJugador)j1).Apellido == ((IJugador)j2).Apellido;
         }
 
         /// <summary>
@@ -176,7 +176,7 @@ namespace libreria_de_clases
         /// <returns>te devuelve true si la comparacion da resultado de lo contrario un false</returns>
         public static bool operator ==(JugadorDeFutbol j1, JugadorDeBeisbol j2)
         {
-            return j1.Nombre == j2.Nombre && j1.Apellido == j2.Apellido;
+            return ((IJugador)j1).Nombre == ((IJugador)j2).Nombre && ((IJugador)j1).Apellido == ((IJugador)j2).Apellido;
         }
 
         /// <summary>

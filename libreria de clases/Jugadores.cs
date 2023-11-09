@@ -18,9 +18,9 @@ namespace libreria_de_clases
             get { return this.partidosJugados;}
         }
 
-        public string Nombre { get { return this.nombre;} }
+        string IJugador.Nombre { get { return this.nombre;} }
 
-        public string Apellido { get { return this.apellido;} }
+        string IJugador.Apellido { get { return this.apellido;} }
 
         public short Años { get { return this.años; } }
 
@@ -98,7 +98,7 @@ namespace libreria_de_clases
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.Append($"nombre: {this.Nombre} - apellido: {this.Apellido} -");
+            sb.Append($"nombre: {((IJugador)this).Nombre} - apellido: {((IJugador)this).Apellido} -");
             sb.AppendLine($"años: {this.Años} - ");
             sb.AppendLine($"partidos jugados: {this.PartidosJugados} - ");
             sb.AppendLine($"deporte: {this.Deporte} ");

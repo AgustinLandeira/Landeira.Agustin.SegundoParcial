@@ -21,8 +21,8 @@ namespace formulario_login_
         /// <param name="jug">el jugador de basket que habiamos instanciado</param>
         public FmrBasket(JugadorDeBasket jug) : this()
         {
-            this.txtApellidoBasket.Text = jug.Apellido;  
-            this.txtNombreBasket.Text = jug.Nombre;
+            this.txtApellidoBasket.Text = ((IJugador)jug).Apellido;       
+            this.txtNombreBasket.Text = ((IJugador)jug).Nombre;
             this.txtPartidosBasket.Text = jug.PartidosJugados.ToString();
             this.txtEdadBasket.Text = jug.Años.ToString();
             this.txtPuntos.Text = jug.Puntos.ToString();

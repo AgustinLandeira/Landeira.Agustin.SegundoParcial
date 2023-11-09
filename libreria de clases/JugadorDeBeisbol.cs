@@ -133,7 +133,7 @@ namespace libreria_de_clases
         /// <returns> retorna un booleano</returns>
         public static bool operator ==(JugadorDeBeisbol j1, JugadorDeBeisbol j2)
         {
-            return j1.Nombre == j2.Nombre && j1.Apellido == j2.Apellido;
+            return ((IJugador)j1).Nombre == ((IJugador)j2).Nombre && ((IJugador)j1).Apellido == ((IJugador)j2).Apellido;
         }
         /// <summary>
         /// llama al operador ==
@@ -153,7 +153,7 @@ namespace libreria_de_clases
         /// <returns>devuelve un booleano</returns>
         public static bool operator ==(JugadorDeBeisbol j1, JugadorDeFutbol j2)
         {
-            return j1.Nombre == j2.Nombre && j1.Apellido == j2.Apellido;
+            return ((IJugador)j1).Nombre == ((IJugador)j2).Nombre && ((IJugador)j1).Apellido == ((IJugador)j2).Apellido;
         }
         /// <summary>
         /// llama e invoca al operador ==
@@ -173,7 +173,7 @@ namespace libreria_de_clases
         /// <returns>devuelve booleano si en la comparacion los dos atributos son iguales</returns>
         public static bool operator ==(JugadorDeBeisbol j1, JugadorDeBasket j2)
         {
-            return j1.Nombre == j2.Nombre && j1.Apellido == j2.Apellido;
+            return ((IJugador)j1).Nombre == ((IJugador)j2).Nombre && ((IJugador)j1).Apellido == ((IJugador)j2).Apellido;
         }
         /// <summary>
         /// 

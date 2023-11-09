@@ -23,8 +23,8 @@ namespace formulario_login_
         /// <param name="prod">el jugador de futbol que habiamos instanciado</param>
         public FmrFutbol(JugadorDeFutbol prod) : this()
         {
-            this.txtApellido.Text = prod.Apellido;  
-            this.txtNombre.Text = prod.Nombre;
+            this.txtApellido.Text = ((IJugador)prod).Apellido;
+            this.txtNombre.Text = ((IJugador)prod).Nombre;
             this.txtPartidosJugados.Text = prod.PartidosJugados.ToString();
             this.txtAño.Text = prod.Años.ToString();
             this.txtCantGoles.Text = prod.Goles.ToString();
