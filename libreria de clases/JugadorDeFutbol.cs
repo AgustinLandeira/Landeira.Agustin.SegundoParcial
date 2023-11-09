@@ -9,7 +9,7 @@ using System.Xml.Serialization;
 namespace libreria_de_clases
 {
     
-    public class JugadorDeFutbol:Jugadores // segunda clase derivada
+    public class JugadorDeFutbol:Jugadores,IPromedio // segunda clase derivada
     {
         public short goles;
         public string posicion;
@@ -75,6 +75,12 @@ namespace libreria_de_clases
             return promedio.ToString("0.00");
         }
 
+        string IPromedio.CalcularPromedio()
+        {
+            float promedio = (float)this.goles / this.PartidosJugados;
+            return promedio.ToString("0.00");
+        }
+
         /// <summary>
         /// este metodo se encargar de hacer un texto y conseguir los atributos del jugador
         /// </summary>
@@ -87,7 +93,7 @@ namespace libreria_de_clases
             sb.AppendLine(base.ToString());
             sb.AppendLine($"- goles: {this.goles} - ");
             sb.AppendLine($"posicion: {this.posicion} - ");
-            sb.AppendLine($"promedio de goles: {this.CalcularPromedio()}");
+            sb.AppendLine($"promedio de goles: {((IPromedio)this).CalcularPromedio()}");
 
             return sb.ToString();
         }

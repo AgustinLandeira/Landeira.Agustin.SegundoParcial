@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace libreria_de_clases
 {
-    public class JugadorDeBasket:Jugadores // primera clase derivada
+    public class JugadorDeBasket:Jugadores,IPromedio // primera clase derivada
     {
         public int puntos;
         public string objetivo;
@@ -67,6 +67,12 @@ namespace libreria_de_clases
 
         }
 
+        string IPromedio.CalcularPromedio()
+        {
+            float promedio = (float)this.puntos / this.PartidosJugados;
+            return promedio.ToString("0.00");
+        }
+
         #region sobrecarga de operador implicito
 
         public static implicit operator JugadorDeBasket(int puntos)
@@ -101,7 +107,7 @@ namespace libreria_de_clases
             sb.AppendLine(base.ToString());
             sb.AppendLine($"puntos: {this.puntos}-");
             sb.AppendLine($"objetivo : {this.objetivo}-");
-            sb.AppendLine($"promedio de puntos {this.CalcularPromedio()}");
+            sb.AppendLine($"promedio de puntos {((IPromedio)this).CalcularPromedio()}");
 
             return sb.ToString();
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace libreria_de_clases
 {
-    public class JugadorDeBeisbol:Jugadores // tercera clase derivada
+    public class JugadorDeBeisbol:Jugadores,IPromedio // tercera clase derivada
     {
         public string accesorio;
         public int  vueltasMaximas;
@@ -73,6 +73,12 @@ namespace libreria_de_clases
             float promedio = (float)this.vueltasMaximas / this.PartidosJugados;
             return promedio.ToString("0.00");
         }
+
+        string IPromedio.CalcularPromedio()
+        {
+            float promedio = (float)this.vueltasMaximas / this.PartidosJugados;
+            return promedio.ToString("0.00");
+        }
         /// <summary>
         /// hace un texto de los atributos del jugador de beisbol
         /// </summary>
@@ -85,7 +91,7 @@ namespace libreria_de_clases
             sb.AppendLine(base.ToString());
             sb.AppendLine($" - accesorio : {this.accesorio}-");
             sb.AppendLine($"vueltas maximas : {this.vueltasMaximas}-");
-            sb.AppendLine($"promedio de vueltas: {this.CalcularPromedio()}");
+            sb.AppendLine($"promedio de vueltas: {((IPromedio)this).CalcularPromedio()}");
 
             return sb.ToString();
         }

@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace libreria_de_clases
 {
-    public interface IJugador
+    public interface IPromedio
     {
-        string Profesion();
         string CalcularPromedio();
     }
 }
