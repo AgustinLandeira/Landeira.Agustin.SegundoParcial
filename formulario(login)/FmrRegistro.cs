@@ -132,34 +132,42 @@ namespace formulario_login_
         /// <param name="e"></param>
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            int indice = this.lstRegistro.SelectedIndex;
-
-            if (indice == -1)
+            if(this.logeado.perfil == "administrador" || this.logeado.perfil == "supervisor")
             {
-                return;
-            }
+                int indice = this.lstRegistro.SelectedIndex;
 
-            Jugadores jugadorAModificar = this.registro.ListaJugadores[indice];
+                if (indice == -1)
+                {
+                    return;
+                }
 
-            if (jugadorAModificar is JugadorDeFutbol)
-            {
-                JugadorDeFutbol futbolista = (JugadorDeFutbol)jugadorAModificar;
-                FmrFutbol fmrf = new FmrFutbol(futbolista);
-                this.ModificarJugador(fmrf, indice);
+                Jugadores jugadorAModificar = this.registro.ListaJugadores[indice];
 
-            }
-            else if (jugadorAModificar is JugadorDeBasket)
-            {
-                JugadorDeBasket basketbolista = (JugadorDeBasket)jugadorAModificar;
-                FmrBasket fmrba = new FmrBasket(basketbolista);
-                this.ModificarJugadorBasket(fmrba, indice);
+                if (jugadorAModificar is JugadorDeFutbol)
+                {
+                    JugadorDeFutbol futbolista = (JugadorDeFutbol)jugadorAModificar;
+                    FmrFutbol fmrf = new FmrFutbol(futbolista);
+                    this.ModificarJugador(fmrf, indice);
+
+                }
+                else if (jugadorAModificar is JugadorDeBasket)
+                {
+                    JugadorDeBasket basketbolista = (JugadorDeBasket)jugadorAModificar;
+                    FmrBasket fmrba = new FmrBasket(basketbolista);
+                    this.ModificarJugadorBasket(fmrba, indice);
+                }
+                else
+                {
+                    JugadorDeBeisbol beisbolista = (JugadorDeBeisbol)jugadorAModificar;
+                    FmrBeisbol fmrbe = new FmrBeisbol(beisbolista);
+                    this.ModificarJugadorBeisbol(fmrbe, indice);
+                }
             }
             else
             {
-                JugadorDeBeisbol beisbolista = (JugadorDeBeisbol)jugadorAModificar;
-                FmrBeisbol fmrbe = new FmrBeisbol(beisbolista);
-                this.ModificarJugadorBeisbol(fmrbe, indice);
+                MessageBox.Show("TENES QUE SER SUPERVISOR O ADMINISTRADOR PARA MODIFICAR A UN JUGADOR", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+           
         }
         /// <summary>
         /// verifica que tipo de jugador queres eliminar y llama al metodo para que termine de eliminarlo
