@@ -58,43 +58,29 @@ namespace formulario_login_
 
             string nombreArchivo = "MOCK_DATA.json";
 
-            try
+            Json<Usuario> json = new Json<Usuario>();
+            this.listaUsuarios = json.Deserializar(nombreArchivo);
+
+            if (this.VerificarDatos())
             {
-                using (StreamReader lectroJson = new StreamReader(nombreArchivo))
-                {
-                    string jsonString = lectroJson.ReadToEnd();
+                IniciarUsuario();
+                FmrRegistro registro = new FmrRegistro(this);
 
-                    this.listaUsuarios = JsonSerializer.Deserialize<List<Usuario>>(jsonString);
-                }
-
-                if (this.VerificarDatos())
-                {
-                    IniciarUsuario();
-                    FmrRegistro registro = new FmrRegistro(this);
-
-                    registro.ShowDialog();
-                    this.Close();
-
-                }
-                else
-                {
-                    MessageBox.Show("VERIFICA TUS DATOS", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    this.CantErrores = 1;
-                }
-
-                if (this.CantErrores == 5)
-                {
-                    MessageBox.Show("SUPERASTE LA CANTIDAD MAXIMA DE INTENTOS", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    this.Close();
-                }
-
+                registro.ShowDialog();
+                this.Close();
 
             }
-            catch (Exception ex)
+            else
             {
-                Console.WriteLine($"Error al leer/deserializar el archivo JSON: {ex.Message}");
+                MessageBox.Show("VERIFICA TUS DATOS", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.CantErrores = 1;
             }
 
+            if (this.CantErrores == 5)
+            {
+                MessageBox.Show("SUPERASTE LA CANTIDAD MAXIMA DE INTENTOS", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+            }
 
         }
         /// <summary>

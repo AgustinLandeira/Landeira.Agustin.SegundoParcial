@@ -9,6 +9,6 @@ namespace libreria_de_clases
     public interface IArchivos<T>
     {
         bool VerificarDatos();
-        T Deserializar();
+        List<T> Deserializar(string nombreArchivo);
     }
 }
