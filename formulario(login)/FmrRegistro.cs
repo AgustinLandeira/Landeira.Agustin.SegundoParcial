@@ -176,28 +176,35 @@ namespace formulario_login_
         /// <param name="e"></param>
         private void Eliminar_Click(object sender, EventArgs e)
         {
-
-            int indice = this.lstRegistro.SelectedIndex;
-
-            if (indice == -1)
+            if(this.logeado.perfil == "administrador")
             {
-                return;
-            }
+                int indice = this.lstRegistro.SelectedIndex;
 
-            Jugadores claseJugador = this.registro.ListaJugadores[indice];
+                if (indice == -1)
+                {
+                    return;
+                }
 
-            DialogResult rta = MessageBox.Show("¿estas seguro de liminar este jugador del registro? ", "ATENCION", MessageBoxButtons.YesNo,
-                           MessageBoxIcon.Question);
+                Jugadores claseJugador = this.registro.ListaJugadores[indice];
 
-            if (rta == DialogResult.Yes && this.registro - claseJugador)
-            {
+                DialogResult rta = MessageBox.Show("¿estas seguro de liminar este jugador del registro? ", "ATENCION", MessageBoxButtons.YesNo,
+                               MessageBoxIcon.Question);
 
-                this.ActualizarRegistro();
+                if (rta == DialogResult.Yes && this.registro - claseJugador)
+                {
+
+                    this.ActualizarRegistro();
+                }
+                else
+                {
+                    MessageBox.Show("no se pudo eliminar el jugador", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
-                MessageBox.Show("no se pudo eliminar el jugador","ERROR",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("TENES QUE SER ADMINISTRADOR PARA ELIMINAR A UN JUGADOR", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            
 
 
         }
