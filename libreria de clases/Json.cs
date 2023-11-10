@@ -7,20 +7,17 @@ using System.Threading.Tasks;
 
 namespace libreria_de_clases
 {
-    public class Json<T>:IArchivos<T>
+    public class Json<T> : IArchivos<T>
     {
         private List<T> listaUsuarios;
+        
         public Json() 
         {
             List<T> listaUsuarios = new List<T>();
 
         }
 
-       public bool VerificarDatos()
-        {
-            return true;
-        }
-
+       
         public List<T> Deserializar(string nombreArchivo)
         {
             try

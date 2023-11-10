@@ -195,7 +195,7 @@ namespace formulario_login_
             try
             {
                 SaveFileDialog guardarDatos = new SaveFileDialog();
-                //guardarDatos.FileName = "./registro de jugadores.xml";
+                
 
                 if (guardarDatos.ShowDialog() == DialogResult.OK)
                 {
@@ -228,24 +228,18 @@ namespace formulario_login_
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 string filePath = openFileDialog.FileName;
-
+                Xml xml = new Xml();
                 try
                 {
-                    using (XmlTextReader lectorxml = new XmlTextReader(filePath))
-                    {
-                        XmlSerializer serializador = new XmlSerializer(typeof(List<Jugadores>));
-                        this.registro.ListaJugadores = (List<Jugadores>)serializador.Deserialize(lectorxml);
-                       
-                        this.ActualizarRegistro();
-                    }
-                }
-                catch (Exception ex)
+                   this.registro.ListaJugadores = xml.Deserializar(filePath);
+                   this.ActualizarRegistro();
+
+                }catch(Exception ex)
                 {
                     MessageBox.Show("Hubo un error al cargar los datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+                
             }
-
-
 
         }
         #endregion
