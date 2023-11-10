@@ -21,6 +21,7 @@ namespace formulario_login_
         List<Usuario> listaUsuarios = new List<Usuario>();
         public string nombreUsuario;
         public string apellido;
+        public string perfil;
         private string correo;
         private string contraseña;
         private bool datosEncontrados;
@@ -100,6 +101,7 @@ namespace formulario_login_
                     this.datosEncontrados = true;
                     this.nombreUsuario = listaUsuarios[i].nombre;
                     this.apellido = listaUsuarios[i].apellido;
+                    this.perfil = listaUsuarios[i].perfil;
                     break;
                 }
             }

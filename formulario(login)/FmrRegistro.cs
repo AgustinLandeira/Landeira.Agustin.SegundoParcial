@@ -59,60 +59,69 @@ namespace formulario_login_
         /// <param name="e"></param>
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            FmrOpciones fmrOpciones = new FmrOpciones();
-            fmrOpciones.StartPosition = FormStartPosition.CenterScreen;
-
-            fmrOpciones.ShowDialog();
-
-
-            if (fmrOpciones.esFutbol)
+            if(this.logeado.perfil == "administrador" || this.logeado.perfil == "supervisor")
             {
-                if (fmrOpciones.DialogResult == DialogResult.OK)
+                FmrOpciones fmrOpciones = new FmrOpciones();
+                fmrOpciones.StartPosition = FormStartPosition.CenterScreen;
+
+                fmrOpciones.ShowDialog();
+
+
+                if (fmrOpciones.esFutbol)
                 {
-                    if (this.registro + fmrOpciones.futbolista)
+                    if (fmrOpciones.DialogResult == DialogResult.OK)
                     {
-                        this.ActualizarRegistro();
-                    }
-                    else
-                    {
-                        MessageBox.Show("EL JUGADOR YA ESTA AGREGADO", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
+                        if (this.registro + fmrOpciones.futbolista)
+                        {
+                            this.ActualizarRegistro();
+                        }
+                        else
+                        {
+                            MessageBox.Show("EL JUGADOR YA ESTA AGREGADO", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
 
 
+                    }
                 }
+                else if (fmrOpciones.esBasket)
+                {
+                    if (fmrOpciones.DialogResult == DialogResult.OK)
+                    {
+                        if (this.registro + fmrOpciones.basketbolista)
+                        {
+                            this.ActualizarRegistro();
+                        }
+                        else
+                        {
+                            MessageBox.Show("EL JUGADOR YA ESTA AGREGADO", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+
+
+                    }
+                }
+                else if (fmrOpciones.esBeisbol)
+                {
+                    if (fmrOpciones.DialogResult == DialogResult.OK)
+                    {
+                        if (this.registro + fmrOpciones.beisbolista)
+                        {
+                            this.ActualizarRegistro();
+                        }
+                        else
+                        {
+                            MessageBox.Show("EL JUGADOR YA ESTA AGREGADO", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+
+
+                    }
+                }
+                
             }
-            else if (fmrOpciones.esBasket)
+            else
             {
-                if (fmrOpciones.DialogResult == DialogResult.OK)
-                {
-                    if (this.registro + fmrOpciones.basketbolista)
-                    {
-                        this.ActualizarRegistro();
-                    }
-                    else
-                    {
-                        MessageBox.Show("EL JUGADOR YA ESTA AGREGADO", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-
-
-                }
+                MessageBox.Show("TENES QUE SER SUPERVISOR O ADMINISTRADOR PARA AGREAGAR A UN JUGADOR", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            else if (fmrOpciones.esBeisbol)
-            {
-                if (fmrOpciones.DialogResult == DialogResult.OK)
-                {
-                    if (this.registro + fmrOpciones.beisbolista)
-                    {
-                        this.ActualizarRegistro();
-                    }
-                    else
-                    {
-                        MessageBox.Show("EL JUGADOR YA ESTA AGREGADO", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
 
-
-                }
-            }
 
 
         }
