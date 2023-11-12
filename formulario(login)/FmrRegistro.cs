@@ -75,6 +75,7 @@ namespace formulario_login_
                         if (this.registro + fmrOpciones.futbolista)
                         {
                             this.ActualizarRegistro();
+                            ado.AgregarJugadorTabla(fmrOpciones.futbolista);
                         }
                         else
                         {
