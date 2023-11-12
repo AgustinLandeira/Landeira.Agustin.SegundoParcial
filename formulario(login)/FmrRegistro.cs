@@ -149,14 +149,14 @@ namespace formulario_login_
                 }
 
                 Jugadores jugadorAModificar = this.registro.ListaJugadores[indice];
+                this.nombreOriginal = ((IJugador)jugadorAModificar).Nombre;
+                this.apellidoOriginal = ((IJugador)jugadorAModificar).Apellido;
 
                 if (jugadorAModificar is JugadorDeFutbol)
                 {
                     JugadorDeFutbol futbolista = (JugadorDeFutbol)jugadorAModificar;
                     FmrFutbol fmrf = new FmrFutbol(futbolista);
 
-                    this.nombreOriginal = ((IJugador)futbolista).Nombre;
-                    this.apellidoOriginal = ((IJugador)futbolista).Apellido;
                     this.ModificarJugador(fmrf, indice);
                     
 
@@ -166,6 +166,7 @@ namespace formulario_login_
                     JugadorDeBasket basketbolista = (JugadorDeBasket)jugadorAModificar;
                     FmrBasket fmrba = new FmrBasket(basketbolista);
                     this.ModificarJugadorBasket(fmrba, indice);
+                   
                 }
                 else
                 {
@@ -354,6 +355,7 @@ namespace formulario_login_
             {
 
                 this.registro.ListaJugadores[indice] = fmr.Jugador;
+                this.ado.ModificarFila(fmr.Jugador, this.nombreOriginal, this.apellidoOriginal);
                 this.ActualizarRegistro();
 
             }

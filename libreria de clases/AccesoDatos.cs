@@ -187,27 +187,37 @@ namespace libreria_de_clases
             try
             {
                 this.comando = new SqlCommand();
-                if(j is JugadorDeFutbol)
+                this.comando.Parameters.AddWithValue("@nombreOriginal", nombreOriginal);
+                this.comando.Parameters.AddWithValue("@apellidoOriginal", apellidoOriginal);
+                this.comando.Parameters.AddWithValue("@Nombre", ((IJugador)j).Nombre);
+                this.comando.Parameters.AddWithValue("@Apellido", ((IJugador)j).Apellido);
+                this.comando.Parameters.AddWithValue("@PartidosJugados", j.partidosJugados);
+                this.comando.Parameters.AddWithValue("@Edad", (int)j.años);
+                this.comando.Parameters.AddWithValue("@Deporte", j.Deporte.ToString());
+                
+                if (j is JugadorDeFutbol)
                 {
-                    this.comando.Parameters.AddWithValue("@nombreOriginal", nombreOriginal);
-                    this.comando.Parameters.AddWithValue("@apellidoOriginal", apellidoOriginal);
-                    this.comando.Parameters.AddWithValue("@Nombre", ((IJugador)j).Nombre);
-                    this.comando.Parameters.AddWithValue("@Apellido",((IJugador)j).Apellido);
-                    this.comando.Parameters.AddWithValue("@PartidosJugados", j.partidosJugados);
-                    this.comando.Parameters.AddWithValue("@Edad", (int)j.años);
-                    this.comando.Parameters.AddWithValue("@Deporte",j.Deporte.ToString());
                     this.comando.Parameters.AddWithValue("@Posicion", ((JugadorDeFutbol)j).Posicion);
                     this.comando.Parameters.AddWithValue("@Goles", ((JugadorDeFutbol)j).Goles);
                     this.comando.Parameters.AddWithValue("@Promedio", ((JugadorDeFutbol)j).CalcularPromedio());
-                    
 
                     this.comando.CommandType = System.Data.CommandType.Text;
                     this.comando.CommandText = "update Tabla_Futbolista set Nombre=@Nombre,Apellido =@Apellido,Partidos_Jugados = @PartidosJugados," +
                         "Edad=@Edad,Deporte=@Deporte,Posicion=@Posicion,Goles=@Goles,Promedio=@Promedio where Nombre = @nombreOriginal and Apellido =  @apellidoOriginal";
-                    this.comando.Connection = this.conexion;
-                    this.conexion.Open();
+                    
+                }else if(j is JugadorDeBasket)
+                {
+                    this.comando.Parameters.AddWithValue("@Puntos",((JugadorDeBasket)j).Puntos);
+                    this.comando.Parameters.AddWithValue("@Objetivo", ((JugadorDeBasket)j).Objetivo);
+                    this.comando.Parameters.AddWithValue("@Promedio", ((JugadorDeBasket)j).CalcularPromedio());
 
+                    this.comando.CommandType = System.Data.CommandType.Text;
+                    this.comando.CommandText = "update Tabla_Basketbolistas set Nombre=@Nombre,Apellido =@Apellido,Partidos_Jugados = @PartidosJugados," +
+                        "Edad=@Edad,Deporte=@Deporte,Objetivo=@Objetivo,Puntos=@Puntos,Promedio=@Promedio where Nombre = @nombreOriginal and Apellido =  @apellidoOriginal";
                 }
+
+                this.comando.Connection = this.conexion;
+                this.conexion.Open();
                 int filasAfectadas = this.comando.ExecuteNonQuery();
 
                 if (filasAfectadas == 1)
