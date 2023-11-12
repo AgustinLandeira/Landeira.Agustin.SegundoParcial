@@ -21,6 +21,9 @@ namespace formulario_login_
         private List<Jugadores> jugadores;
         private Login logeado;
         private Registro<Jugadores> registro;
+        private AccesoDatos ado;
+        private string nombreOriginal;
+        private string apellidoOriginal;
 
         /// <summary>
         /// crea una instancia 
@@ -28,7 +31,7 @@ namespace formulario_login_
         /// <param name="login">se pasa el objeto del tipo login y lo instanciamos para que tenga el coportamiento que tuvo</param>
         public FmrRegistro(Login login)
         {
-
+           this.ado = new AccesoDatos();
             this.StartPosition = FormStartPosition.CenterScreen;
             this.jugadores = new List<Jugadores>();
             InitializeComponent();
@@ -59,7 +62,7 @@ namespace formulario_login_
         /// <param name="e"></param>
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            AccesoDatos ado = new AccesoDatos();
+            
             if(this.logeado.perfil == "administrador" || this.logeado.perfil == "supervisor")
             {
                 FmrOpciones fmrOpciones = new FmrOpciones();
@@ -75,7 +78,7 @@ namespace formulario_login_
                         if (this.registro + fmrOpciones.futbolista)
                         {
                             this.ActualizarRegistro();
-                            ado.AgregarJugadorTabla(fmrOpciones.futbolista);
+                            this.ado.AgregarJugadorTabla(fmrOpciones.futbolista);
                         }
                         else
                         {
@@ -92,7 +95,7 @@ namespace formulario_login_
                         if (this.registro + fmrOpciones.basketbolista)
                         {
                             this.ActualizarRegistro();
-                            ado.AgregarJugadorTabla(fmrOpciones.basketbolista);
+                            this.ado.AgregarJugadorTabla(fmrOpciones.basketbolista);
                         }
                         else
                         {
@@ -109,7 +112,7 @@ namespace formulario_login_
                         if (this.registro + fmrOpciones.beisbolista)
                         {
                             this.ActualizarRegistro();
-                            ado.AgregarJugadorTabla(fmrOpciones.beisbolista);
+                            this.ado.AgregarJugadorTabla(fmrOpciones.beisbolista);
                         }
                         else
                         {
@@ -151,7 +154,11 @@ namespace formulario_login_
                 {
                     JugadorDeFutbol futbolista = (JugadorDeFutbol)jugadorAModificar;
                     FmrFutbol fmrf = new FmrFutbol(futbolista);
+
+                    this.nombreOriginal = ((IJugador)futbolista).Nombre;
+                    this.apellidoOriginal = ((IJugador)futbolista).Apellido;
                     this.ModificarJugador(fmrf, indice);
+                    
 
                 }
                 else if (jugadorAModificar is JugadorDeBasket)
@@ -329,6 +336,7 @@ namespace formulario_login_
             if (fmr.DialogResult == DialogResult.OK)
             {
                 this.registro.ListaJugadores[indice] = fmr.Jugador;
+                ado.ModificarFila(fmr.Jugador, this.nombreOriginal, this.apellidoOriginal);
                 this.ActualizarRegistro();
 
             }

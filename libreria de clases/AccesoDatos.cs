@@ -100,7 +100,7 @@ namespace libreria_de_clases
             {
                 this.comando = new SqlCommand();
                 this.comando.CommandText = "INSERT INTO Tabla_Futbolista(Nombre,Apellido,Partidos_Jugados,Edad,Deporte,Posicion,Goles,Promedio)" +
-                    "VALUES(@Nombre,@Apellido,@PartidosJugados,@Edad,@Deporte,@Posicion,@Goles,@Promedio)";
+                    "VALUES(@Nombre,@Apellido,@PartidosJugados,@Edad,@Deporte,@Posicion,@Goles,@Promedio) ";
 
                 this.comando.Parameters.AddWithValue("@Nombre",((IJugador)j).Nombre);
                 this.comando.Parameters.AddWithValue("@Apellido", ((IJugador)j).Apellido);
@@ -180,6 +180,58 @@ namespace libreria_de_clases
                     this.conexion.Close();
                 }
             }
+        }
+
+        public void ModificarFila(Jugadores j,string nombreOriginal,string apellidoOriginal)
+        {
+            try
+            {
+                this.comando = new SqlCommand();
+                if(j is JugadorDeFutbol)
+                {
+                    this.comando.Parameters.AddWithValue("@nombreOriginal", nombreOriginal);
+                    this.comando.Parameters.AddWithValue("@apellidoOriginal", apellidoOriginal);
+                    this.comando.Parameters.AddWithValue("@Nombre", ((IJugador)j).Nombre);
+                    this.comando.Parameters.AddWithValue("@Apellido",((IJugador)j).Apellido);
+                    this.comando.Parameters.AddWithValue("@PartidosJugados", j.partidosJugados);
+                    this.comando.Parameters.AddWithValue("@Edad", (int)j.años);
+                    this.comando.Parameters.AddWithValue("@Deporte",j.Deporte.ToString());
+                    this.comando.Parameters.AddWithValue("@Posicion", ((JugadorDeFutbol)j).Posicion);
+                    this.comando.Parameters.AddWithValue("@Goles", ((JugadorDeFutbol)j).Goles);
+                    this.comando.Parameters.AddWithValue("@Promedio", ((JugadorDeFutbol)j).CalcularPromedio());
+                    
+
+                    this.comando.CommandType = System.Data.CommandType.Text;
+                    this.comando.CommandText = "update Tabla_Futbolista set Nombre=@Nombre,Apellido =@Apellido,Partidos_Jugados = @PartidosJugados," +
+                        "Edad=@Edad,Deporte=@Deporte,Posicion=@Posicion,Goles=@Goles,Promedio=@Promedio where Nombre = @nombreOriginal and Apellido =  @apellidoOriginal";
+                    this.comando.Connection = this.conexion;
+                    this.conexion.Open();
+
+                }
+                int filasAfectadas = this.comando.ExecuteNonQuery();
+
+                if (filasAfectadas == 1)
+                {
+
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("Error de SQL: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            finally
+            {
+                if (this.conexion.State == System.Data.ConnectionState.Open)
+                {
+                    this.conexion.Close();
+                }
+            }
+
         }
 
 
