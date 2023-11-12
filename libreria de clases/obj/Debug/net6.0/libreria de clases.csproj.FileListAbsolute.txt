@@ -9,3 +9,6 @@ C:\Users\lande\source\repos\Landeira.Agustin\libreria de clases\obj\Debug\net6.0
 C:\Users\lande\source\repos\Landeira.Agustin\libreria de clases\obj\Debug\net6.0\refint\libreria de clases.dll
 C:\Users\lande\source\repos\Landeira.Agustin\libreria de clases\obj\Debug\net6.0\libreria de clases.pdb
 C:\Users\lande\source\repos\Landeira.Agustin\libreria de clases\obj\Debug\net6.0\ref\libreria de clases.dll
+C:\Users\lande\source\repos\Landeira.Agustin\libreria de clases\obj\Debug\net6.0\libreria de clases.csproj.AssemblyReference.cache
+C:\Users\lande\source\repos\Landeira.Agustin\libreria de clases\obj\Debug\net6.0\libreria_de_clases.Properties.Resources.resources
+C:\Users\lande\source\repos\Landeira.Agustin\libreria de clases\obj\Debug\net6.0\libreria de clases.csproj.GenerateResource.cache

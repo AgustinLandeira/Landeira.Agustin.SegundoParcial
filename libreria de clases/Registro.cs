@@ -97,7 +97,7 @@ namespace libreria_de_clases
         /// <param name="j1">primer jugador</param>
         /// <param name="j2">segundo jugador</param>
         /// <returns>retora un numero en donde si es -1 j1 tiene que ir antes q j2 o si retorna 1 j2 tiene q ir antes q j1</returns>
-        public static int OrdenarPorPartidosJugadosDes(Jugadores j1, Jugadores j2) // forma descendente
+        public static int OrdenarPorPartidosJugadosDes(T j1, T j2) // forma descendente
         {
             if (j1.PartidosJugados > j2.PartidosJugados)
             {
