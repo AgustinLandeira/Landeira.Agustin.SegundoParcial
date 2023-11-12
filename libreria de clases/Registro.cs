@@ -118,7 +118,7 @@ namespace libreria_de_clases
         /// <param name="j1">primer jugador</param>
         /// <param name="j2">primer jugador</param>
         /// <returns>retorna -1 en donde indica que j1 va antes que j2 o si es 1 j2 tiene que ir antes que j1 en la lista</returns>
-        public static int OrdenarPorAñosAsc(Jugadores j1, Jugadores j2) // forma ascendente
+        public static int OrdenarPorAñosAsc(T j1, T j2) // forma ascendente
         {
             if (j1.Años < j2.Años)
             {
@@ -139,7 +139,7 @@ namespace libreria_de_clases
         /// <param name="j1">primer jugador</param>
         /// <param name="j2">segundo jugador</param>
         /// <returns>retorna -1 en donde indica que j1 va antes que j2 o si es 1 j2 tiene que ir antes que j1 en la lista</returns>
-        public static int OrdenarPorAñosDesc(Jugadores j1, Jugadores j2) // forma descendente
+        public static int OrdenarPorAñosDesc(T j1, T j2) // forma descendente
         {
             if (j1.Años > j2.Años)
             {

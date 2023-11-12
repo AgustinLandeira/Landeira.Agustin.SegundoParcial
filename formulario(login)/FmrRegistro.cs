@@ -59,6 +59,7 @@ namespace formulario_login_
         /// <param name="e"></param>
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            AccesoDatos ado = new AccesoDatos();
             if(this.logeado.perfil == "administrador" || this.logeado.perfil == "supervisor")
             {
                 FmrOpciones fmrOpciones = new FmrOpciones();
@@ -90,6 +91,7 @@ namespace formulario_login_
                         if (this.registro + fmrOpciones.basketbolista)
                         {
                             this.ActualizarRegistro();
+                            ado.AgregarJugadorTabla(fmrOpciones.basketbolista);
                         }
                         else
                         {
