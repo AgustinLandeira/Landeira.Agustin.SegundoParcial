@@ -109,6 +109,7 @@ namespace formulario_login_
                         if (this.registro + fmrOpciones.beisbolista)
                         {
                             this.ActualizarRegistro();
+                            ado.AgregarJugadorTabla(fmrOpciones.beisbolista);
                         }
                         else
                         {

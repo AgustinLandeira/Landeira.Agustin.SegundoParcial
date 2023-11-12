@@ -138,6 +138,50 @@ namespace libreria_de_clases
             }
         }
 
+        public void AgregarJugadorTabla(JugadorDeBeisbol j)
+        {
+            try
+            {
+                this.comando = new SqlCommand();
+                this.comando.CommandText = "INSERT INTO Tabla_Beisbolistas(Nombre,Apellido,Partidos_Jugados,Edad,Deporte,Accesorio,Cantidad_Vueltas,Promedio)" +
+                    "VALUES(@Nombre,@Apellido,@PartidosJugados,@Edad,@Deporte,@Accesorio,@Vueltas,@Promedio)";
+
+                this.comando.Parameters.AddWithValue("@Nombre", ((IJugador)j).Nombre);
+                this.comando.Parameters.AddWithValue("@Apellido", ((IJugador)j).Apellido);
+                this.comando.Parameters.AddWithValue("@PartidosJugados", j.PartidosJugados);
+                this.comando.Parameters.AddWithValue("@Edad", (int)j.años);
+                this.comando.Parameters.AddWithValue("@Deporte", j.Deporte.ToString());
+                this.comando.Parameters.AddWithValue("@Accesorio", j.Accesorio);
+                this.comando.Parameters.AddWithValue("@Vueltas", j.VueltasMaximas);
+                this.comando.Parameters.AddWithValue("@Promedio", j.CalcularPromedio());
+
+                this.comando.Connection = this.conexion;
+                this.conexion.Open();
+                int filasAfectadas = this.comando.ExecuteNonQuery();
+
+                if (filasAfectadas == 1)
+                {
+                }
+
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("Error de SQL: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            finally
+            {
+                if (this.conexion.State == System.Data.ConnectionState.Open)
+                {
+                    this.conexion.Close();
+                }
+            }
+        }
+
 
     }
 }
