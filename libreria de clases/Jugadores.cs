@@ -11,20 +11,20 @@ namespace libreria_de_clases
         public int partidosJugados;
         public string nombre;
         public string apellido;
-        public short años;
+        public int años;
         public EDeporte deporte;
         public int PartidosJugados
         {
             get { return this.partidosJugados;}
         }
 
-        string IJugador.Nombre { get { return this.nombre;} }
+        string IJugador.Nombre { get { return this.nombre; } set { this.nombre = value; } }
 
-        string IJugador.Apellido { get { return this.apellido;} }
+        string IJugador.Apellido { get { return this.apellido;}set { this.apellido = value; } }
 
-        public short Años { get { return this.años; } }
+        public int Años { get { return this.años; } set { this.años = value; } }
 
-        public EDeporte Deporte { get { return this.deporte; } }
+        public EDeporte Deporte { get { return this.deporte; }set { this.deporte = value; } }
 
 
         public Jugadores()

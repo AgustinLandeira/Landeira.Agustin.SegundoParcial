@@ -204,7 +204,7 @@ namespace formulario_login_
 
                 if (rta == DialogResult.Yes && this.registro - claseJugador)
                 {
-
+                    ado.EliminarFila(claseJugador);
                     this.ActualizarRegistro();
                 }
                 else
@@ -322,7 +322,10 @@ namespace formulario_login_
         {
 
             this.Text = "Operador: " + logeado.nombreUsuario + " - fecha actual: " + DateTime.Now.ToShortDateString();
-
+            this.registro.ListaJugadores = this.ado.RecuperarInformacion(this.registro.ListaJugadores,true,false,false);
+            this.registro.ListaJugadores = this.ado.RecuperarInformacion(this.registro.ListaJugadores, false, true, false);
+            this.registro.ListaJugadores = this.ado.RecuperarInformacion(this.registro.ListaJugadores, false, false, true);
+            ActualizarRegistro() ;
         }
 
         /// <summary>

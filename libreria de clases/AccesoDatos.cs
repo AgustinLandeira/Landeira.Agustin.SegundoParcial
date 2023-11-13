@@ -14,6 +14,7 @@ namespace libreria_de_clases
         private SqlConnection conexion;
         private static string cadena_conexion;
         private SqlCommand comando;
+        private SqlDataReader lector;
 
         static AccesoDatos()
         {
@@ -58,7 +59,7 @@ namespace libreria_de_clases
                 this.comando.Parameters.AddWithValue("@Nombre", ((IJugador)j).Nombre);
                 this.comando.Parameters.AddWithValue("@Apellido", ((IJugador)j).Apellido);
                 this.comando.Parameters.AddWithValue("@PartidosJugados", j.PartidosJugados);
-                this.comando.Parameters.AddWithValue("@Edad", (int)j.años);
+                this.comando.Parameters.AddWithValue("@Edad", j.Años);
                 this.comando.Parameters.AddWithValue("@Deporte", j.Deporte.ToString());
                 this.comando.Parameters.AddWithValue("@Objetivo", j.objetivo);
                 this.comando.Parameters.AddWithValue("@Puntos", j.Puntos);
@@ -105,7 +106,7 @@ namespace libreria_de_clases
                 this.comando.Parameters.AddWithValue("@Nombre",((IJugador)j).Nombre);
                 this.comando.Parameters.AddWithValue("@Apellido", ((IJugador)j).Apellido);
                 this.comando.Parameters.AddWithValue("@PartidosJugados", j.PartidosJugados);
-                this.comando.Parameters.AddWithValue("@Edad", (int)j.años);
+                this.comando.Parameters.AddWithValue("@Edad",j.Años);
                 this.comando.Parameters.AddWithValue("@Deporte", j.Deporte.ToString());
                 this.comando.Parameters.AddWithValue("@Posicion", j.posicion);
                 this.comando.Parameters.AddWithValue("@Goles", j.Goles);
@@ -149,7 +150,7 @@ namespace libreria_de_clases
                 this.comando.Parameters.AddWithValue("@Nombre", ((IJugador)j).Nombre);
                 this.comando.Parameters.AddWithValue("@Apellido", ((IJugador)j).Apellido);
                 this.comando.Parameters.AddWithValue("@PartidosJugados", j.PartidosJugados);
-                this.comando.Parameters.AddWithValue("@Edad", (int)j.años);
+                this.comando.Parameters.AddWithValue("@Edad", j.Años);
                 this.comando.Parameters.AddWithValue("@Deporte", j.Deporte.ToString());
                 this.comando.Parameters.AddWithValue("@Accesorio", j.Accesorio);
                 this.comando.Parameters.AddWithValue("@Vueltas", j.VueltasMaximas);
@@ -192,7 +193,7 @@ namespace libreria_de_clases
                 this.comando.Parameters.AddWithValue("@Nombre", ((IJugador)j).Nombre);
                 this.comando.Parameters.AddWithValue("@Apellido", ((IJugador)j).Apellido);
                 this.comando.Parameters.AddWithValue("@PartidosJugados", j.partidosJugados);
-                this.comando.Parameters.AddWithValue("@Edad", (int)j.años);
+                this.comando.Parameters.AddWithValue("@Edad", j.Años);
                 this.comando.Parameters.AddWithValue("@Deporte", j.Deporte.ToString());
                 
                 if (j is JugadorDeFutbol)
@@ -259,8 +260,8 @@ namespace libreria_de_clases
             try
             {
                 this.comando = new SqlCommand();
-                this.comando.Parameters.AddWithValue("@Nombre", j.nombre);
-                this.comando.Parameters.AddWithValue("@Apellido", j.apellido);
+                this.comando.Parameters.AddWithValue("@Nombre", ((IJugador)j).Nombre);
+                this.comando.Parameters.AddWithValue("@Apellido", ((IJugador)j).Apellido);
 
                 if (j is JugadorDeFutbol)
                 {
@@ -307,11 +308,113 @@ namespace libreria_de_clases
             
         }
 
-        public List<Jugadores> RecuperarInformacion()
+        public List<Jugadores> RecuperarInformacion(List<Jugadores>lista,bool jugadorBasket,bool JugadorFutbol,bool JugadorBeisbol)
         {
-            List<Jugadores> lista = new List<Jugadores>();
+            
+
+            try
+            {
+                this.comando = new SqlCommand();
+                this.comando.CommandType = System.Data.CommandType.Text;
+                if (jugadorBasket)
+                {
+                    this.comando.CommandText = "select id,Nombre,Apellido,Partidos_Jugados,Edad,Deporte,Objetivo,Puntos," +
+                        "Promedio from Tabla_Basketbolistas";
+
+                }else if (JugadorFutbol)
+                {
+                    this.comando.CommandText = "select id,Nombre,Apellido,Partidos_Jugados,Edad,Deporte,Posicion,Goles," +
+                        "Promedio from Tabla_Futbolista";
+                }
+                else if(JugadorBeisbol)
+                {
+                    this.comando.CommandText = "select id,Nombre,Apellido,Partidos_Jugados,Edad,Deporte,Accesorio,Cantidad_Vueltas," +
+                                            "Promedio from Tabla_Beisbolistas";
+                }
+                this.comando.Connection = this.conexion;
+                this.conexion.Open();
+
+                this.lector = this.comando.ExecuteReader();
+                
+                while(this.lector.Read())
+                {
+                    if(JugadorFutbol)
+                    {
+                        JugadorDeFutbol jF = new JugadorDeFutbol();
+                        jF.nombre = (string)this.lector["Nombre"];
+                        jF.apellido = (string)this.lector["Apellido"];
+                        jF.partidosJugados = (int)this.lector["Partidos_Jugados"];
+                        jF.años = (int)this.lector["Edad"];
+                        jF.deporte = AccesoDatos.Enumerado(this.lector);
+                        jF.posicion = (string)this.lector["Posicion"];
+                        jF.goles = (int)this.lector["Goles"];
+                        
+                        lista.Add(jF);
+                    }else if (jugadorBasket)
+                    {
+                        JugadorDeBasket jB = new JugadorDeBasket();
+                        jB.nombre = (string)this.lector["Nombre"];
+                        jB.apellido = (string)this.lector["Apellido"];
+                        jB.partidosJugados = (int)this.lector["Partidos_Jugados"];
+                        jB.años = (int)this.lector["Edad"];
+                        jB.deporte = AccesoDatos.Enumerado(this.lector);
+                        jB.objetivo = (string)this.lector["Objetivo"];
+                        jB.puntos = (int)this.lector["Puntos"];
+
+                        lista.Add(jB);
+                    }
+                    else if(JugadorBeisbol)
+                    {
+                        JugadorDeBeisbol jB = new JugadorDeBeisbol();
+                        jB.nombre = (string)this.lector["Nombre"];
+                        jB.apellido = (string)this.lector["Apellido"];
+                        jB.partidosJugados = (int)this.lector["Partidos_Jugados"];
+                        jB.años = (int)this.lector["Edad"];
+                        jB.deporte = AccesoDatos.Enumerado(this.lector);
+                        jB.accesorio = (string)this.lector["Accesorio"];
+                        jB.vueltasMaximas = (int)this.lector["Cantidad_Vueltas"];
+
+                        lista.Add(jB);
+                    }
+
+                }
+                this.lector.Close();
+                
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                if(this.conexion.State == System.Data.ConnectionState.Open)
+                {
+                    this.conexion.Close();
+                }
+            }
 
             return lista;
+        }
+
+        public static EDeporte Enumerado(SqlDataReader reader)
+        {
+            if (reader["Deporte"].ToString() == "Futbol")
+            {
+                return EDeporte.Futbol;
+            }
+            else if (reader["Deporte"].ToString() == "Basquet")
+            {
+                return EDeporte.Basquet;
+            }
+            else if (reader["Deporte"].ToString() == "Beisbol")
+            {
+                return EDeporte.Beisbol;
+            }
+            
+            else
+            {
+                return EDeporte.Deportista;
+            }
         }
     }
 }

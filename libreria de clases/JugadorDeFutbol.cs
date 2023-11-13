@@ -11,12 +11,12 @@ namespace libreria_de_clases
     
     public class JugadorDeFutbol:Jugadores,IPromedio // segunda clase derivada
     {
-        public short goles;
+        public int goles;
         public string posicion;
 
         // sobreecarga elegida
 
-        public short Goles
+        public int Goles
         {
             get { return this.goles; }
         }

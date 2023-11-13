@@ -10,9 +10,9 @@ namespace libreria_de_clases
     {
         string Profesion();
         
-        string Nombre {  get; }
-        string Apellido {  get; }
+        string Nombre { get; set; }
+        string Apellido { get; set; }
 
-        short Años {  get; }
+        int Años { get; set; }
     }
 }
