@@ -254,6 +254,64 @@ namespace libreria_de_clases
 
         }
 
+        public void EliminarFila(Jugadores j)
+        {
+            try
+            {
+                this.comando = new SqlCommand();
+                this.comando.Parameters.AddWithValue("@Nombre", j.nombre);
+                this.comando.Parameters.AddWithValue("@Apellido", j.apellido);
 
+                if (j is JugadorDeFutbol)
+                {
+
+                    this.comando.CommandText = "delete from Tabla_Futbolista where Nombre=@Nombre and Apellido =@Apellido";
+                    this.comando.Connection = this.conexion;
+                    this.conexion.Open();
+
+                }else if(j is JugadorDeBasket)
+                {
+                    this.comando.CommandText = "delete from Tabla_Basketbolistas where Nombre=@Nombre and Apellido =@Apellido";
+                    this.comando.Connection = this.conexion;
+                    this.conexion.Open();
+                }
+                else
+                {
+                    this.comando.CommandText = "delete from Tabla_Beisbolistas where Nombre=@Nombre and Apellido =@Apellido";
+                    this.comando.Connection = this.conexion;
+                    this.conexion.Open();
+                }
+                int filasAfectadas = this.comando.ExecuteNonQuery();
+
+                if (filasAfectadas > 0)
+                {
+                }
+            }
+            catch (SqlException ex)
+            {
+
+                Console.WriteLine("Error de SQL: " + ex.Message);
+
+            }
+            catch (Exception ex) 
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            finally
+            {
+                if(this.conexion.State == System.Data.ConnectionState.Open)
+                {
+                    this.conexion.Close();
+                }
+            }
+            
+        }
+
+        public List<Jugadores> RecuperarInformacion()
+        {
+            List<Jugadores> lista = new List<Jugadores>();
+
+            return lista;
+        }
     }
 }
