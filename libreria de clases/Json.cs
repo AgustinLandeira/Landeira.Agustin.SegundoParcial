@@ -30,14 +30,20 @@ namespace libreria_de_clases
                 }
                 
 
-            }catch (Exception ex) 
+            }
+            catch (JsonException jsonEx)
+            {
+                Console.WriteLine($"Error al deserializar el archivo JSON: {jsonEx.Message}");
+            }
+            catch (Exception ex) 
             {
                 Console.WriteLine($"Error al leer/deserializar el archivo JSON: {ex.Message}");
 
 
             }
             
-             return this.listaUsuarios;
+
+            return this.listaUsuarios;
 
         }
     }

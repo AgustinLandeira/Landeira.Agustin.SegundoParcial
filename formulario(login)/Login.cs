@@ -140,6 +140,10 @@ namespace formulario_login_
                     sw.WriteLine($"nombre: {this.nombreUsuario} - apellido: {this.apellido} - fecha de inicializacion: {DateTime.Now}");
                 }
             }
+            catch (IOException ioEx)
+            {
+                Console.WriteLine($"Error al acceder al archivo de usuarios: {ioEx.Message}");
+            }
             catch (Exception ex)
             {
 
