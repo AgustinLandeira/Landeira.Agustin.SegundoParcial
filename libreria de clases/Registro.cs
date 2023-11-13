@@ -10,7 +10,7 @@ namespace libreria_de_clases
 {
     public class Registro<T> where T : Jugadores
     {
-        //private List<Jugadores> listaJugadores;
+        
         private List<T> listaJugadores;
 
         public List<T> ListaJugadores

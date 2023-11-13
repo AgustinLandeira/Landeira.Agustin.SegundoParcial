@@ -215,6 +215,16 @@ namespace libreria_de_clases
                     this.comando.CommandText = "update Tabla_Basketbolistas set Nombre=@Nombre,Apellido =@Apellido,Partidos_Jugados = @PartidosJugados," +
                         "Edad=@Edad,Deporte=@Deporte,Objetivo=@Objetivo,Puntos=@Puntos,Promedio=@Promedio where Nombre = @nombreOriginal and Apellido =  @apellidoOriginal";
                 }
+                else
+                {
+                    this.comando.Parameters.AddWithValue("@Vueltas", ((JugadorDeBeisbol)j).VueltasMaximas);
+                    this.comando.Parameters.AddWithValue("@Accesorio", ((JugadorDeBeisbol)j).Accesorio);
+                    this.comando.Parameters.AddWithValue("@Promedio", ((JugadorDeBeisbol)j).CalcularPromedio());
+
+                    this.comando.CommandType = System.Data.CommandType.Text;
+                    this.comando.CommandText = "update Tabla_Beisbolistas set Nombre=@Nombre,Apellido =@Apellido,Partidos_Jugados = @PartidosJugados," +
+                        "Edad=@Edad,Deporte=@Deporte,Accesorio=@Accesorio,Cantidad_Vueltas=@Vueltas,Promedio=@Promedio where Nombre = @nombreOriginal and Apellido =  @apellidoOriginal";
+                }
 
                 this.comando.Connection = this.conexion;
                 this.conexion.Open();

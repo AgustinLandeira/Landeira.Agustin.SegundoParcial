@@ -372,6 +372,7 @@ namespace formulario_login_
             if (fmr.DialogResult == DialogResult.OK)
             {
                 this.registro.ListaJugadores[indice] = fmr.jugador;
+                this.ado.ModificarFila(fmr.jugador, nombreOriginal, apellidoOriginal);
                 this.ActualizarRegistro();
 
             }
