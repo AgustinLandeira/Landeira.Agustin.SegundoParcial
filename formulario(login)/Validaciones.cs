@@ -8,16 +8,26 @@ using System.Threading.Tasks;
 namespace libreria_de_clases
 {
     public delegate void  Notificacion(string s);
-    public delegate void Profesion(string s);
+    public delegate void Jugador(string s);
     public class Validaciones
     {
         private string profesion;
+        private string nombreJugador;
+
+        public string NombreJugador
+        {
+            set
+            {
+                this.nombreJugador = value;
+                this.MostrarJugador.Invoke($"el jugador llamado {this.nombreJugador} ya esta en la lista");
+            }
+        }
 
         public string Profesion
         {
             get
             {
-                //this.MostrarPerfil.Invoke($"Perfil: {this.profesion}");
+                
                 return this.profesion;
             }
             set
@@ -28,13 +38,14 @@ namespace libreria_de_clases
         }
         public Validaciones() 
         {
+            this.nombreJugador = "";
             this.profesion = "indefinido";
             this.ValidacionPerfiles += new Notificacion(FmrRegistro.Notificar);
-            //this.MostrarPerfil += new Profesion(FmrRegistro.MostrarPerfil);
+            this.MostrarJugador += new Jugador(FmrRegistro.MostrarJugadorRepetido);
         
         }
 
         public event Notificacion ValidacionPerfiles;
-       // public event Profesion MostrarPerfil;
+        public event Jugador MostrarJugador;
     }
 }

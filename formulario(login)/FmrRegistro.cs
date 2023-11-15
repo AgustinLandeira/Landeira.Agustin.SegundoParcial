@@ -48,10 +48,10 @@ namespace formulario_login_
             MessageBox.Show(notificacion ,"AVISO",MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
-        /*public static void MostrarPerfil(string profesion)
+        public static void MostrarJugadorRepetido(string nombre)
         {
-
-        }*/
+            MessageBox.Show(nombre, "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
 
         /// <summary>
         /// te va agregando a la lstbox los jugadores que esta en la lista
@@ -95,7 +95,7 @@ namespace formulario_login_
                         }
                         else
                         {
-                            MessageBox.Show("EL JUGADOR YA ESTA AGREGADO", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            this.validar.NombreJugador = fmrOpciones.futbolista.nombre;
                            
                         }
 
@@ -113,7 +113,7 @@ namespace formulario_login_
                         }
                         else
                         {
-                            MessageBox.Show("EL JUGADOR YA ESTA AGREGADO", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            this.validar.NombreJugador = fmrOpciones.basketbolista.nombre;
                         }
 
 
@@ -130,7 +130,7 @@ namespace formulario_login_
                         }
                         else
                         {
-                            MessageBox.Show("EL JUGADOR YA ESTA AGREGADO", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            this.validar.NombreJugador = fmrOpciones.beisbolista.nombre;
                         }
 
 
