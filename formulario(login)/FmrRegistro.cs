@@ -24,6 +24,7 @@ namespace formulario_login_
         private AccesoDatos ado;
         private string nombreOriginal;
         private string apellidoOriginal;
+        private Validaciones validar;
 
         /// <summary>
         /// crea una instancia 
@@ -31,15 +32,27 @@ namespace formulario_login_
         /// <param name="login">se pasa el objeto del tipo login y lo instanciamos para que tenga el coportamiento que tuvo</param>
         public FmrRegistro(Login login)
         {
-           this.ado = new AccesoDatos();
+            
+            this.ado = new AccesoDatos();
             this.StartPosition = FormStartPosition.CenterScreen;
             this.jugadores = new List<Jugadores>();
             InitializeComponent();
             this.logeado = login;
             this.registro = new Registro<Jugadores>();
-
+            this.validar = new Validaciones();
 
         }
+
+        public static void Notificar(string notificacion)
+        {
+            MessageBox.Show(notificacion ,"AVISO",MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        /*public static void MostrarPerfil(string profesion)
+        {
+
+        }*/
+
         /// <summary>
         /// te va agregando a la lstbox los jugadores que esta en la lista
         /// </summary>
@@ -83,6 +96,7 @@ namespace formulario_login_
                         else
                         {
                             MessageBox.Show("EL JUGADOR YA ESTA AGREGADO", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                           
                         }
 
 
@@ -126,7 +140,8 @@ namespace formulario_login_
             }
             else
             {
-                MessageBox.Show("TENES QUE SER SUPERVISOR O ADMINISTRADOR PARA AGREAGAR A UN JUGADOR", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                this.validar.Profesion = this.logeado.perfil;
+                
             }
 
 
@@ -139,7 +154,7 @@ namespace formulario_login_
         /// <param name="e"></param>
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            if(this.logeado.perfil == "administrador" || this.logeado.perfil == "supervisor")
+            if (this.logeado.perfil == "administrador" || this.logeado.perfil == "supervisor")
             {
                 int indice = this.lstRegistro.SelectedIndex;
 
@@ -158,7 +173,7 @@ namespace formulario_login_
                     FmrFutbol fmrf = new FmrFutbol(futbolista);
 
                     this.ModificarJugador(fmrf, indice);
-                    
+
 
                 }
                 else if (jugadorAModificar is JugadorDeBasket)
@@ -166,7 +181,7 @@ namespace formulario_login_
                     JugadorDeBasket basketbolista = (JugadorDeBasket)jugadorAModificar;
                     FmrBasket fmrba = new FmrBasket(basketbolista);
                     this.ModificarJugadorBasket(fmrba, indice);
-                   
+
                 }
                 else
                 {
@@ -177,7 +192,7 @@ namespace formulario_login_
             }
             else
             {
-                MessageBox.Show("TENES QUE SER SUPERVISOR O ADMINISTRADOR PARA MODIFICAR A UN JUGADOR", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                this.validar.Profesion = this.logeado.perfil;
             }
            
         }
@@ -214,7 +229,8 @@ namespace formulario_login_
             }
             else
             {
-                MessageBox.Show("TENES QUE SER ADMINISTRADOR PARA ELIMINAR A UN JUGADOR", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                this.validar.Profesion = this.logeado.perfil;
+                
             }
             
 
@@ -407,5 +423,7 @@ namespace formulario_login_
             fmrUsuario.ShowDialog();
 
         }
+
+        
     }
 }
