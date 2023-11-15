@@ -14,6 +14,7 @@ namespace formulario_login_
     public partial class FmrBasket : Form
     {
         public JugadorDeBasket Jugador;
+        private Validacion validacion;
 
         /// <summary>
         /// recupera los datos que habia ingresado anteriormente el usuario del jugador que creo
@@ -31,6 +32,7 @@ namespace formulario_login_
         }
         public FmrBasket()
         {
+            this.validacion = new Validacion();
             this.StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
         }
@@ -54,9 +56,17 @@ namespace formulario_login_
             if(short.TryParse(this.txtEdadBasket.Text,out años) && int.TryParse(this.txtPuntos.Text,out puntos) &&
                 int.TryParse(this.txtPartidosBasket.Text,out partidos))
             {
-                this.Jugador = new JugadorDeBasket(puntos, objetivo, partidos, nombre, apellido, años, EDeporte.Basquet);
+                this.validacion.EdadIngresada = años;
+                this.validacion.PartidosJugados = partidos;
+                this.validacion.Goles_Puntos_Vueltas = puntos;
+                if (this.validacion.EdadIngresada > 0 && this.validacion.PartidosJugados >= 0 &&
+                    this.validacion.Goles_Puntos_Vueltas >= 0)
+                {
+                    this.Jugador = new JugadorDeBasket(puntos, objetivo, partidos, nombre, apellido, años, EDeporte.Basquet);
+                    this.DialogResult = DialogResult.OK;
 
-                this.DialogResult = DialogResult.OK;
+                }
+                
             }
             else
             {

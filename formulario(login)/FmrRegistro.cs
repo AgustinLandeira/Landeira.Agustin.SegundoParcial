@@ -24,7 +24,7 @@ namespace formulario_login_
         private AccesoDatos ado;
         private string nombreOriginal;
         private string apellidoOriginal;
-        private Validaciones validar;
+        private Notificaciones validar;
 
         /// <summary>
         /// crea una instancia 
@@ -32,25 +32,30 @@ namespace formulario_login_
         /// <param name="login">se pasa el objeto del tipo login y lo instanciamos para que tenga el coportamiento que tuvo</param>
         public FmrRegistro(Login login)
         {
-            
+
             this.ado = new AccesoDatos();
             this.StartPosition = FormStartPosition.CenterScreen;
             this.jugadores = new List<Jugadores>();
             InitializeComponent();
             this.logeado = login;
             this.registro = new Registro<Jugadores>();
-            this.validar = new Validaciones();
+            this.validar = new Notificaciones();
 
         }
 
         public static void Notificar(string notificacion)
         {
-            MessageBox.Show(notificacion ,"AVISO",MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            MessageBox.Show(notificacion, "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         public static void MostrarJugadorRepetido(string nombre)
         {
             MessageBox.Show(nombre, "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        public static void EdadInvalida(string mensaje)
+        {
+            MessageBox.Show(mensaje, "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         /// <summary>

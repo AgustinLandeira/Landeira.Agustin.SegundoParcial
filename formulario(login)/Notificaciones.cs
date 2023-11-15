@@ -9,7 +9,7 @@ namespace libreria_de_clases
 {
     public delegate void  Notificacion(string s);
     public delegate void Jugador(string s);
-    public class Validaciones
+    public class Notificaciones
     {
         private string profesion;
         private string nombreJugador;
@@ -36,7 +36,7 @@ namespace libreria_de_clases
                 this.ValidacionPerfiles.Invoke($"no podes entrar porque sos {this.profesion}");
             }
         }
-        public Validaciones() 
+        public Notificaciones() 
         {
             this.nombreJugador = "";
             this.profesion = "indefinido";

@@ -16,6 +16,7 @@ namespace formulario_login_
     {
         public JugadorDeFutbol Jugador;
         private List<JugadorDeFutbol> jugadoresDeFutbol;
+        private Validacion validacion;
 
         /// <summary>
         /// recupera los datos que habia puesto el usuario anteriormente
@@ -30,9 +31,12 @@ namespace formulario_login_
             this.txtCantGoles.Text = prod.Goles.ToString();
             this.txtPosicion.Text = prod.Posicion;
             this.DialogResult = DialogResult.OK;
+            
+            
         }
         public FmrFutbol()
         {
+             this.validacion = new Validacion();
             this.jugadoresDeFutbol = new List<JugadorDeFutbol>();
             this.StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
@@ -56,8 +60,19 @@ namespace formulario_login_
             if(int.TryParse(this.txtPartidosJugados.Text,out partidos) && short.TryParse(this.txtAño.Text,out años)
                 && short.TryParse(this.txtCantGoles.Text,out goles))   
             {
-                this.Jugador = new JugadorDeFutbol(goles, posicion, partidos, nombre, apellido, años, EDeporte.Futbol);
-                this.DialogResult = DialogResult.OK;
+                this.validacion.EdadIngresada = años;
+                this.validacion.PartidosJugados = partidos;
+                this.validacion.Goles_Puntos_Vueltas = goles;
+
+                if (this.validacion.EdadIngresada > 0 && this.validacion.PartidosJugados >= 0 &&
+                    this.validacion.Goles_Puntos_Vueltas >= 0)
+                {
+                    this.Jugador = new JugadorDeFutbol(goles, posicion, partidos, nombre, apellido, años, EDeporte.Futbol);
+                    this.DialogResult = DialogResult.OK;
+
+                }
+                
+                
    
             }
             else

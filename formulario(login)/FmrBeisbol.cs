@@ -14,6 +14,7 @@ namespace formulario_login_
     public partial class FmrBeisbol : Form
     {
         public JugadorDeBeisbol jugador;
+        private Validacion validacion;
 
         /// <summary>
         /// recupera los datos que habia puesto el usuario anteriormente
@@ -31,6 +32,7 @@ namespace formulario_login_
         }
         public FmrBeisbol()
         {
+            this.validacion = new Validacion();
             this.StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
         }
@@ -54,9 +56,18 @@ namespace formulario_login_
             if(short.TryParse(this.txtEdadBeisbol.Text,out años) && int.TryParse(this.txtcantVueltas.Text,out vueltas) &&
                 int.TryParse(this.txtPartidosBeisbol.Text,out partidos))
             {
-                this.jugador = new JugadorDeBeisbol(acceorio, vueltas, partidos, nombre, apellido, años, EDeporte.Beisbol);
 
-                this.DialogResult = DialogResult.OK;
+                this.validacion.EdadIngresada = años;
+                this.validacion.PartidosJugados = partidos;
+                this.validacion.Goles_Puntos_Vueltas = vueltas;
+                if (this.validacion.EdadIngresada > 0 && this.validacion.PartidosJugados >= 0 &&
+                    this.validacion.Goles_Puntos_Vueltas >= 0)
+                {
+                    this.jugador = new JugadorDeBeisbol(acceorio, vueltas, partidos, nombre, apellido, años, EDeporte.Beisbol);
+                    this.DialogResult = DialogResult.OK;
+
+                }
+                
             }
             else
             {
