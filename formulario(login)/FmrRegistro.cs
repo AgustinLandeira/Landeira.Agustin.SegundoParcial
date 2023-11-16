@@ -13,6 +13,8 @@ using System.Windows.Forms;
 using System.Xml.Serialization;
 using System.Xml;
 using System.Runtime.CompilerServices;
+using System.Diagnostics;
+using System.Threading;
 
 namespace formulario_login_
 {
@@ -25,6 +27,11 @@ namespace formulario_login_
         private string nombreOriginal;
         private string apellidoOriginal;
         private Notificaciones validar;
+        private CancellationToken cancellation;
+        private CancellationTokenSource cancellationSource;
+        private Task cronometroTask;
+        private TimeSpan tiempoTranscurrido;
+
 
         /// <summary>
         /// crea una instancia 
@@ -40,8 +47,47 @@ namespace formulario_login_
             this.logeado = login;
             this.registro = new Registro<Jugadores>();
             this.validar = new Notificaciones();
+            this.cancellationSource = new CancellationTokenSource();//hace el cancel
+            this.cancellation = this.cancellationSource.Token;// verifica si se quiere cancelar
+            this.tiempoTranscurrido = TimeSpan.Zero; // es una constante en que representa 0 horas,0minutos,0segundos etc
 
+            EmpezarCronometro();
         }
+
+        private void EmpezarCronometro()
+        {
+            // con el task.run realizo la tarea en segundo plano
+            this.cronometroTask = Task.Run(async () => // utilizamos una expresion labda para realizar la tarea
+            {
+                while (!this.cancellation.IsCancellationRequested) // este bucle se itera mientra el la cancelacion no fue pedida 
+                {
+                    // al usar async nos permite usar el await que lo usamos de forma asincronica para pausar la ejecucuion
+                    await Task.Delay(1000); // Espera 1 segundo de forma asincronica
+                    tiempoTranscurrido = tiempoTranscurrido.Add(TimeSpan.FromSeconds(1));// en cada iteracion el cronometro va incrementando en 1
+
+                    // Actualiza el Label con el tiempo transcurrido
+                    ActualizarTiempoTranscurrido(tiempoTranscurrido);
+                }
+            }, this.cancellation);
+        }
+
+        private void ActualizarTiempoTranscurrido(TimeSpan tiempo)
+        {
+
+            if (InvokeRequired)
+            {
+                //invocamos la actualización en el hilo de la interfaz de usuario
+                Invoke(new Action(() => ActualizarTiempoTranscurrido(tiempo)));
+            }
+            else
+            {
+                // Si estamos en el hilo de la interfaz, actualizar directamente el Label
+                this.lblTiempo.Text = $"{tiempo.Hours:D2}:{tiempo.Minutes:D2}:{tiempo.Seconds:D2}";
+                // el formato d2 es par que me muestre dos digitos
+            }
+        }
+
+
 
         public static void Notificar(string notificacion)
         {
@@ -80,8 +126,8 @@ namespace formulario_login_
         /// <param name="e"></param>
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            
-            if(this.logeado.perfil == "administrador" || this.logeado.perfil == "supervisor")
+
+            if (this.logeado.perfil == "administrador" || this.logeado.perfil == "supervisor")
             {
                 FmrOpciones fmrOpciones = new FmrOpciones();
                 fmrOpciones.StartPosition = FormStartPosition.CenterScreen;
@@ -101,7 +147,7 @@ namespace formulario_login_
                         else
                         {
                             this.validar.NombreJugador = fmrOpciones.futbolista.nombre;
-                           
+
                         }
 
 
@@ -141,12 +187,12 @@ namespace formulario_login_
 
                     }
                 }
-                
+
             }
             else
             {
                 this.validar.Profesion = this.logeado.perfil;
-                
+
             }
 
 
@@ -199,7 +245,7 @@ namespace formulario_login_
             {
                 this.validar.Profesion = this.logeado.perfil;
             }
-           
+
         }
         /// <summary>
         /// verifica que tipo de jugador queres eliminar y llama al metodo para que termine de eliminarlo
@@ -208,7 +254,7 @@ namespace formulario_login_
         /// <param name="e"></param>
         private void Eliminar_Click(object sender, EventArgs e)
         {
-            if(this.logeado.perfil == "administrador")
+            if (this.logeado.perfil == "administrador")
             {
                 int indice = this.lstRegistro.SelectedIndex;
 
@@ -235,9 +281,9 @@ namespace formulario_login_
             else
             {
                 this.validar.Profesion = this.logeado.perfil;
-                
+
             }
-            
+
 
 
         }
@@ -252,7 +298,7 @@ namespace formulario_login_
             try
             {
                 SaveFileDialog guardarDatos = new SaveFileDialog();
-                
+
 
                 if (guardarDatos.ShowDialog() == DialogResult.OK)
                 {
@@ -261,16 +307,17 @@ namespace formulario_login_
                     {
                         XmlSerializer serializador = new XmlSerializer(typeof(List<Jugadores>));
                         serializador.Serialize(escritorxml, this.registro.ListaJugadores);
-                        MessageBox.Show(" SE PUDO GUARDAR LOS DATOS", "AVISO",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                        MessageBox.Show(" SE PUDO GUARDAR LOS DATOS", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                     }
                 }
-                
-            }catch(Exception ex)
+
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK);
             }
-            
+
         }
 
         /// <summary>
@@ -288,14 +335,15 @@ namespace formulario_login_
                 Xml xml = new Xml();
                 try
                 {
-                   this.registro.ListaJugadores = xml.Deserializar(filePath);
-                   this.ActualizarRegistro();
+                    this.registro.ListaJugadores = xml.Deserializar(filePath);
+                    this.ActualizarRegistro();
 
-                }catch(Exception ex)
+                }
+                catch (Exception ex)
                 {
                     MessageBox.Show("Hubo un error al cargar los datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                
+
             }
 
         }
@@ -343,10 +391,10 @@ namespace formulario_login_
         {
 
             this.Text = "Operador: " + logeado.nombreUsuario + " - fecha actual: " + DateTime.Now.ToShortDateString();
-            this.registro.ListaJugadores = this.ado.RecuperarInformacion(this.registro.ListaJugadores,true,false,false);
+            this.registro.ListaJugadores = this.ado.RecuperarInformacion(this.registro.ListaJugadores, true, false, false);
             this.registro.ListaJugadores = this.ado.RecuperarInformacion(this.registro.ListaJugadores, false, true, false);
             this.registro.ListaJugadores = this.ado.RecuperarInformacion(this.registro.ListaJugadores, false, false, true);
-            ActualizarRegistro() ;
+            ActualizarRegistro();
         }
 
         /// <summary>
@@ -429,6 +477,6 @@ namespace formulario_login_
 
         }
 
-        
+
     }
 }

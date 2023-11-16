@@ -45,10 +45,11 @@ namespace formulario_login_
 
         public int EdadIngresada
         {
-            get { return edadIngresada; }
+            get { return this.edadIngresada; }
             
-            set
+            set     
             {
+                this.edadIngresada = value;
                 if(value <= 0)
                 {
                     this.validacion.Invoke($"la edad {value} es invalida para el jugador");

@@ -43,6 +43,8 @@
             BtnRadioEdadDesc = new RadioButton();
             BtnRadioEdadAsc = new RadioButton();
             btbUsuarios = new Button();
+            label3 = new Label();
+            lblTiempo = new Label();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -216,11 +218,33 @@
             btbUsuarios.UseVisualStyleBackColor = true;
             btbUsuarios.Click += btbUsuarios_Click;
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Ravie", 7F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.Location = new Point(635, 378);
+            label3.Name = "label3";
+            label3.Size = new Size(200, 17);
+            label3.TabIndex = 8;
+            label3.Text = "Tiempo transcurrido:";
+            // 
+            // lblTiempo
+            // 
+            lblTiempo.AutoSize = true;
+            lblTiempo.Font = new Font("Ravie", 7.8F, FontStyle.Bold, GraphicsUnit.Point);
+            lblTiempo.Location = new Point(851, 376);
+            lblTiempo.Name = "lblTiempo";
+            lblTiempo.Size = new Size(67, 19);
+            lblTiempo.TabIndex = 9;
+            lblTiempo.Text = "label4";
+            // 
             // FmrRegistro
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1011, 450);
+            Controls.Add(lblTiempo);
+            Controls.Add(label3);
             Controls.Add(btbUsuarios);
             Controls.Add(groupBox1);
             Controls.Add(btnRecuperarDatos);
@@ -236,6 +260,7 @@
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -255,5 +280,7 @@
         private RadioButton BtnRadioEdadDesc;
         private Button btnOrdenar;
         private Button btbUsuarios;
+        private Label label3;
+        private Label lblTiempo;
     }
 }
