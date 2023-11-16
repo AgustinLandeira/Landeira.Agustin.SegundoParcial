@@ -25,7 +25,31 @@ La aplicación se centra en el registro de jugadores de varios deportes, como ba
 
 ## Aclaracion
 los botones tanto como guardar datos y recuperar datos no se van a usar porque se guarda automaticamente en la base de datos y tambien se recupera automaticamente de la misma.
-## Diagrama de clases:
-![Captura de pantalla 2023-10-17 115418](https://github.com/agus2023/landeira.agustin.primer-parcial/assets/122326040/bd964134-b5ce-430a-b38d-c997019e45d5)
+## Diagrama de clases
+
+## Clase base y sus derivadas
+![Captura de pantalla 2023-11-16 200252](https://github.com/agus2023/Landeira.Agustin.SegundoParcial/assets/122326040/42dfa0ec-94cb-4adb-bef2-34b7d16d47a6)
+
+## interfaces:
+![Captura de pantalla 2023-11-16 200837](https://github.com/agus2023/Landeira.Agustin.SegundoParcial/assets/122326040/5a54826f-aa2a-4677-b84f-83ee620461f8)
+
+clases extras en la que se implementa interfaces tambien:
+![Captura de pantalla 2023-11-16 201927](https://github.com/agus2023/Landeira.Agustin.SegundoParcial/assets/122326040/0ce59140-70e9-4b48-9988-1a3c9f4a99bb)
+
+## enum :
+![Captura de pantalla 2023-11-16 201340](https://github.com/agus2023/Landeira.Agustin.SegundoParcial/assets/122326040/f74fcf69-8d11-41b9-93e9-4e200b969b9b)
+
+## clase con la que trabajo con sql:
+![Captura de pantalla 2023-11-16 201558](https://github.com/agus2023/Landeira.Agustin.SegundoParcial/assets/122326040/8db2d751-a910-4ee5-b440-b23c477fc881)
+
+## clase con generics :
+![image](https://github.com/agus2023/Landeira.Agustin.SegundoParcial/assets/122326040/28f10022-50a4-47e4-b82f-42fd74a49dee)
+
+
+
+
+
+
+
 
 
