@@ -45,6 +45,10 @@ clases extras en la que se implementa interfaces tambien:
 ## clase con generics :
 ![image](https://github.com/agus2023/Landeira.Agustin.SegundoParcial/assets/122326040/28f10022-50a4-47e4-b82f-42fd74a49dee)
 
+## delegados y eventos :
+![image](https://github.com/agus2023/Landeira.Agustin.SegundoParcial/assets/122326040/4acddd8b-e023-4c90-b7fe-39b02d84d339)
+
+
 
 
 
