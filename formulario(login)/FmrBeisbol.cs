@@ -53,8 +53,8 @@ namespace formulario_login_
             string acceorio = this.txtAccesorio.Text;
 
 
-            if(short.TryParse(this.txtEdadBeisbol.Text,out años) && int.TryParse(this.txtcantVueltas.Text,out vueltas) &&
-                int.TryParse(this.txtPartidosBeisbol.Text,out partidos))
+            if (short.TryParse(this.txtEdadBeisbol.Text, out años) && int.TryParse(this.txtcantVueltas.Text, out vueltas) &&
+                int.TryParse(this.txtPartidosBeisbol.Text, out partidos))
             {
 
                 this.validacion.EdadIngresada = años;
@@ -67,13 +67,13 @@ namespace formulario_login_
                     this.DialogResult = DialogResult.OK;
 
                 }
-                
+
             }
             else
             {
                 MessageBox.Show("ERROR CON LA ENTRADA DE DATOS", "ADVERTENCIA!!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            
+
         }
     }
 }

@@ -295,28 +295,37 @@ namespace formulario_login_
         /// <param name="e"></param>
         private void btnGuardarDatos_Click(object sender, EventArgs e)
         {
-            try
+            if(this.logeado.perfil == "")
             {
-                SaveFileDialog guardarDatos = new SaveFileDialog();
 
-
-                if (guardarDatos.ShowDialog() == DialogResult.OK)
+                try
                 {
-                    string filePath = guardarDatos.FileName;
-                    using (XmlTextWriter escritorxml = new XmlTextWriter(filePath, Encoding.UTF8))
+                    SaveFileDialog guardarDatos = new SaveFileDialog();
+
+
+                    if (guardarDatos.ShowDialog() == DialogResult.OK)
                     {
-                        XmlSerializer serializador = new XmlSerializer(typeof(List<Jugadores>));
-                        serializador.Serialize(escritorxml, this.registro.ListaJugadores);
-                        MessageBox.Show(" SE PUDO GUARDAR LOS DATOS", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        string filePath = guardarDatos.FileName;
+                        using (XmlTextWriter escritorxml = new XmlTextWriter(filePath, Encoding.UTF8))
+                        {
+                            XmlSerializer serializador = new XmlSerializer(typeof(List<Jugadores>));
+                            serializador.Serialize(escritorxml, this.registro.ListaJugadores);
+                            MessageBox.Show(" SE PUDO GUARDAR LOS DATOS", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
+                        }
                     }
-                }
 
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK);
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK);
+                MessageBox.Show(" EN ESTA PARTE DEL PARCIAL NO ESTA DISPONIBLE ESTE BOTON", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            
 
         }
 
@@ -327,24 +336,33 @@ namespace formulario_login_
         /// <param name="e"></param>
         private void btnRecuperarDatos_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            if(this.logeado.perfil == "")
             {
-                string filePath = openFileDialog.FileName;
-                Xml xml = new Xml();
-                try
-                {
-                    this.registro.ListaJugadores = xml.Deserializar(filePath);
-                    this.ActualizarRegistro();
+                OpenFileDialog openFileDialog = new OpenFileDialog();
 
-                }
-                catch (Exception ex)
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    MessageBox.Show("Hubo un error al cargar los datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    string filePath = openFileDialog.FileName;
+                    Xml xml = new Xml();
+                    try
+                    {
+                        this.registro.ListaJugadores = xml.Deserializar(filePath);
+                        this.ActualizarRegistro();
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Hubo un error al cargar los datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
                 }
 
             }
+            else
+            {
+                MessageBox.Show(" EN ESTA PARTE DEL PARCIAL NO ESTA DISPONIBLE ESTE BOTON", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            
 
         }
         #endregion

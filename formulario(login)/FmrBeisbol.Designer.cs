@@ -166,6 +166,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = Properties.Resources.fondo_beisbol;
             ClientSize = new Size(800, 450);
             Controls.Add(btnAceptarBeisbol);
             Controls.Add(txtApellidoBeisbol);

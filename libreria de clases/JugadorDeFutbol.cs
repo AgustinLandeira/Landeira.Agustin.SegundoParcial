@@ -35,14 +35,15 @@ namespace libreria_de_clases
         }
 
         #region contructores
-        public JugadorDeFutbol(int partidosJugados, string nombre, string apellido, short años, EDeporte deporte) :base(partidosJugados, nombre, apellido,años, deporte) 
+        public JugadorDeFutbol(int partidosJugados, string nombre, string apellido,
+            short años, EDeporte deporte) :base(partidosJugados, nombre, apellido,años, deporte) 
         {
             this.goles = 0;
             this.posicion = "desconocida";
         }
 
-        public JugadorDeFutbol(short cantGoles, int partidosJugados, string nombre, string apellido, short años,EDeporte deporte)
-            :this(partidosJugados, nombre, apellido, años,deporte)
+        public JugadorDeFutbol(short cantGoles, int partidosJugados, string nombre, 
+            string apellido, short años,EDeporte deporte):this(partidosJugados, nombre, apellido, años,deporte)
         {
             this.goles = cantGoles;
             
@@ -57,8 +58,8 @@ namespace libreria_de_clases
         /// <param name="apellido"> el apellido del jugador</param>
         /// <param name="años">la edad que tiene el jugador</param>
         /// <param name="deporte"> el tipo de deporte que juega</param>
-        public JugadorDeFutbol(short cantGoles, string posicion, int partidosJugados, string nombre, string apellido, short años,EDeporte deporte) 
-            :this(cantGoles, partidosJugados, nombre, apellido, años,deporte)
+        public JugadorDeFutbol(short cantGoles, string posicion, int partidosJugados,
+            string nombre, string apellido, short años,EDeporte deporte) :this(cantGoles, partidosJugados, nombre, apellido, años,deporte)
         {
             this.posicion = posicion;
         }

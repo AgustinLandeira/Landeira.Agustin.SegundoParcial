@@ -46,42 +46,42 @@
             // 
             // txtPuntos
             // 
-            txtPuntos.Location = new Point(337, 204);
+            txtPuntos.Location = new Point(370, 234);
             txtPuntos.Name = "txtPuntos";
             txtPuntos.Size = new Size(125, 27);
             txtPuntos.TabIndex = 0;
             // 
             // txtPartidosBasket
             // 
-            txtPartidosBasket.Location = new Point(140, 204);
+            txtPartidosBasket.Location = new Point(147, 234);
             txtPartidosBasket.Name = "txtPartidosBasket";
             txtPartidosBasket.Size = new Size(125, 27);
             txtPartidosBasket.TabIndex = 1;
             // 
             // txtObjetivo
             // 
-            txtObjetivo.Location = new Point(576, 204);
+            txtObjetivo.Location = new Point(600, 234);
             txtObjetivo.Name = "txtObjetivo";
             txtObjetivo.Size = new Size(125, 27);
             txtObjetivo.TabIndex = 2;
             // 
             // txtNombreBasket
             // 
-            txtNombreBasket.Location = new Point(85, 100);
+            txtNombreBasket.Location = new Point(105, 138);
             txtNombreBasket.Name = "txtNombreBasket";
             txtNombreBasket.Size = new Size(125, 27);
             txtNombreBasket.TabIndex = 3;
             // 
             // txtApellidoBasket
             // 
-            txtApellidoBasket.Location = new Point(328, 100);
+            txtApellidoBasket.Location = new Point(329, 142);
             txtApellidoBasket.Name = "txtApellidoBasket";
             txtApellidoBasket.Size = new Size(125, 27);
             txtApellidoBasket.TabIndex = 4;
             // 
             // txtEdadBasket
             // 
-            txtEdadBasket.Location = new Point(576, 103);
+            txtEdadBasket.Location = new Point(572, 142);
             txtEdadBasket.Name = "txtEdadBasket";
             txtEdadBasket.Size = new Size(125, 27);
             txtEdadBasket.TabIndex = 5;
@@ -90,7 +90,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Ravie", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(205, 26);
+            label1.Location = new Point(206, 54);
             label1.Name = "label1";
             label1.Size = new Size(390, 40);
             label1.TabIndex = 6;
@@ -99,7 +99,7 @@
             // lblApellido
             // 
             lblApellido.AutoSize = true;
-            lblApellido.Location = new Point(245, 103);
+            lblApellido.Location = new Point(254, 145);
             lblApellido.Name = "lblApellido";
             lblApellido.Size = new Size(69, 20);
             lblApellido.TabIndex = 7;
@@ -108,7 +108,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(484, 204);
+            label3.Location = new Point(513, 241);
             label3.Name = "label3";
             label3.Size = new Size(67, 20);
             label3.TabIndex = 8;
@@ -117,7 +117,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(488, 103);
+            label4.Location = new Point(494, 149);
             label4.Name = "label4";
             label4.Size = new Size(46, 20);
             label4.TabIndex = 9;
@@ -126,7 +126,7 @@
             // lblNombre
             // 
             lblNombre.AutoSize = true;
-            lblNombre.Location = new Point(12, 103);
+            lblNombre.Location = new Point(12, 141);
             lblNombre.Name = "lblNombre";
             lblNombre.Size = new Size(67, 20);
             lblNombre.TabIndex = 10;
@@ -135,7 +135,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(12, 204);
+            label6.Location = new Point(12, 241);
             label6.Name = "label6";
             label6.Size = new Size(122, 20);
             label6.TabIndex = 11;
@@ -144,7 +144,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(271, 204);
+            label7.Location = new Point(289, 241);
             label7.Name = "label7";
             label7.Size = new Size(60, 20);
             label7.TabIndex = 12;
@@ -166,6 +166,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = Properties.Resources.fondo_basquet;
             ClientSize = new Size(800, 450);
             Controls.Add(btnAceptarBasket);
             Controls.Add(label7);

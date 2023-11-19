@@ -27,15 +27,15 @@ namespace libreria_de_clases
             this.puntos = 0;
             this.objetivo = "no se sabe";
         }
-        JugadorDeBasket(int partidosJugados, string nombre, string apellido, short años,EDeporte deporte) 
-            :base(partidosJugados, nombre, apellido, años,deporte) 
+        JugadorDeBasket(int partidosJugados, string nombre, string apellido, 
+            short años,EDeporte deporte) :base(partidosJugados, nombre, apellido, años,deporte) 
         { 
             this.puntos = 0;
             this.objetivo = "no se sabe";
         
         }
-        public JugadorDeBasket(int puntos, int partidosJugados, string nombre, string apellido, short años, EDeporte deporte) 
-            :this(partidosJugados, nombre, apellido, años,deporte)
+        public JugadorDeBasket(int puntos, int partidosJugados, string nombre,
+            string apellido, short años, EDeporte deporte) :this(partidosJugados, nombre, apellido, años,deporte)
         {
             this.puntos = puntos;
             
@@ -50,8 +50,8 @@ namespace libreria_de_clases
         /// <param name="apellido"> el apellido del jugador</param>
         /// <param name="años">la edad del jugador</param>
         /// <param name="deporte">el deporte que estacion</param>
-        public JugadorDeBasket(int puntos, string objetivo, int partidosJugados, string nombre, string apellido, short años, EDeporte deporte) 
-            : this(puntos, partidosJugados, nombre, apellido, años,deporte)
+        public JugadorDeBasket(int puntos, string objetivo, int partidosJugados,
+            string nombre, string apellido, short años, EDeporte deporte) : this(puntos, partidosJugados, nombre, apellido, años,deporte)
         {
             this.objetivo = objetivo;
         }

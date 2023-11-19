@@ -39,14 +39,14 @@
             // 
             // txtIniciarSesion
             // 
-            txtIniciarSesion.Location = new Point(272, 141);
+            txtIniciarSesion.Location = new Point(248, 147);
             txtIniciarSesion.Name = "txtIniciarSesion";
             txtIniciarSesion.Size = new Size(256, 27);
             txtIniciarSesion.TabIndex = 0;
             // 
             // txtContraseña
             // 
-            txtContraseña.Location = new Point(272, 291);
+            txtContraseña.Location = new Point(248, 278);
             txtContraseña.Name = "txtContraseña";
             txtContraseña.Size = new Size(256, 27);
             txtContraseña.TabIndex = 1;
@@ -56,7 +56,7 @@
             lbl1.AutoSize = true;
             lbl1.BackColor = SystemColors.ButtonHighlight;
             lbl1.ForeColor = SystemColors.ActiveCaptionText;
-            lbl1.Location = new Point(300, 98);
+            lbl1.Location = new Point(272, 96);
             lbl1.Name = "lbl1";
             lbl1.Size = new Size(200, 20);
             lbl1.TabIndex = 2;
@@ -68,7 +68,7 @@
             lbl2.AutoSize = true;
             lbl2.BackColor = SystemColors.ButtonHighlight;
             lbl2.ForeColor = SystemColors.ActiveCaptionText;
-            lbl2.Location = new Point(325, 248);
+            lbl2.Location = new Point(300, 213);
             lbl2.Name = "lbl2";
             lbl2.Size = new Size(151, 20);
             lbl2.TabIndex = 3;
@@ -76,7 +76,7 @@
             // 
             // btn_IniciarSesion
             // 
-            btn_IniciarSesion.Location = new Point(314, 374);
+            btn_IniciarSesion.Location = new Point(288, 366);
             btn_IniciarSesion.Name = "btn_IniciarSesion";
             btn_IniciarSesion.Size = new Size(173, 29);
             btn_IniciarSesion.TabIndex = 4;
@@ -88,7 +88,7 @@
             // 
             lblMostrar.AutoSize = true;
             lblMostrar.BackColor = SystemColors.ButtonHighlight;
-            lblMostrar.Location = new Point(554, 298);
+            lblMostrar.Location = new Point(527, 285);
             lblMostrar.Name = "lblMostrar";
             lblMostrar.Size = new Size(60, 20);
             lblMostrar.TabIndex = 5;
@@ -99,7 +99,7 @@
             // 
             lblOcultar.AutoSize = true;
             lblOcultar.BackColor = SystemColors.ButtonHighlight;
-            lblOcultar.Location = new Point(557, 298);
+            lblOcultar.Location = new Point(527, 285);
             lblOcultar.Name = "lblOcultar";
             lblOcultar.Size = new Size(57, 20);
             lblOcultar.TabIndex = 6;
@@ -110,7 +110,8 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(743, 448);
+            BackgroundImage = Properties.Resources.fondo_login;
+            ClientSize = new Size(720, 448);
             Controls.Add(lblOcultar);
             Controls.Add(lblMostrar);
             Controls.Add(btn_IniciarSesion);

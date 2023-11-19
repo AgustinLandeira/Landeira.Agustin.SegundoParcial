@@ -31,12 +31,12 @@ namespace formulario_login_
             this.txtCantGoles.Text = prod.Goles.ToString();
             this.txtPosicion.Text = prod.Posicion;
             this.DialogResult = DialogResult.OK;
-            
-            
+
+
         }
         public FmrFutbol()
         {
-             this.validacion = new Validacion();
+            this.validacion = new Validacion();
             this.jugadoresDeFutbol = new List<JugadorDeFutbol>();
             this.StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
@@ -48,7 +48,7 @@ namespace formulario_login_
         /// <param name="e"></param>
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            
+
             int partidos;
             short años;
             short goles;
@@ -57,8 +57,8 @@ namespace formulario_login_
             string apellido = this.txtApellido.Text;
             string posicion = this.txtPosicion.Text;
 
-            if(int.TryParse(this.txtPartidosJugados.Text,out partidos) && short.TryParse(this.txtAño.Text,out años)
-                && short.TryParse(this.txtCantGoles.Text,out goles))   
+            if (int.TryParse(this.txtPartidosJugados.Text, out partidos) && short.TryParse(this.txtAño.Text, out años)
+                && short.TryParse(this.txtCantGoles.Text, out goles))
             {
                 this.validacion.EdadIngresada = años;
                 this.validacion.PartidosJugados = partidos;
@@ -71,16 +71,16 @@ namespace formulario_login_
                     this.DialogResult = DialogResult.OK;
 
                 }
-                
-                
-   
+
+
+
             }
             else
             {
                 MessageBox.Show("ERROR CON LA ENTRADA DE DATOS", "ADVERTENCIA!!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
-            
+
         }
     }
 }

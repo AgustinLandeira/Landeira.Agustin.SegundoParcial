@@ -48,7 +48,7 @@
             // 
             lblJugador.AutoSize = true;
             lblJugador.Font = new Font("Ravie", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            lblJugador.Location = new Point(212, 28);
+            lblJugador.Location = new Point(220, 32);
             lblJugador.Name = "lblJugador";
             lblJugador.Size = new Size(376, 40);
             lblJugador.TabIndex = 0;
@@ -88,7 +88,7 @@
             // 
             // txtPartidosJugados
             // 
-            txtPartidosJugados.Location = new Point(141, 203);
+            txtPartidosJugados.Location = new Point(141, 210);
             txtPartidosJugados.Name = "txtPartidosJugados";
             txtPartidosJugados.Size = new Size(125, 27);
             txtPartidosJugados.TabIndex = 5;
@@ -154,7 +154,7 @@
             // 
             btnAceptar.FlatAppearance.BorderColor = Color.Aqua;
             btnAceptar.FlatStyle = FlatStyle.Flat;
-            btnAceptar.Location = new Point(333, 330);
+            btnAceptar.Location = new Point(318, 336);
             btnAceptar.Name = "btnAceptar";
             btnAceptar.Size = new Size(134, 29);
             btnAceptar.TabIndex = 13;
@@ -166,6 +166,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = Properties.Resources.fondo_futbol;
             ClientSize = new Size(800, 450);
             Controls.Add(btnAceptar);
             Controls.Add(txtGoles);

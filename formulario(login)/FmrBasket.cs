@@ -22,7 +22,7 @@ namespace formulario_login_
         /// <param name="jug">el jugador de basket que habiamos instanciado</param>
         public FmrBasket(JugadorDeBasket jug) : this()
         {
-            this.txtApellidoBasket.Text = ((IJugador)jug).Apellido;       
+            this.txtApellidoBasket.Text = ((IJugador)jug).Apellido;
             this.txtNombreBasket.Text = ((IJugador)jug).Nombre;
             this.txtPartidosBasket.Text = jug.PartidosJugados.ToString();
             this.txtEdadBasket.Text = jug.Años.ToString();
@@ -47,14 +47,14 @@ namespace formulario_login_
             short años;
             int partidos;
             int puntos;
-            
+
             string nombre = this.txtNombreBasket.Text;
             string apellido = this.txtApellidoBasket.Text;
             string objetivo = this.txtObjetivo.Text;
-            
-            
-            if(short.TryParse(this.txtEdadBasket.Text,out años) && int.TryParse(this.txtPuntos.Text,out puntos) &&
-                int.TryParse(this.txtPartidosBasket.Text,out partidos))
+
+
+            if (short.TryParse(this.txtEdadBasket.Text, out años) && int.TryParse(this.txtPuntos.Text, out puntos) &&
+                int.TryParse(this.txtPartidosBasket.Text, out partidos))
             {
                 this.validacion.EdadIngresada = años;
                 this.validacion.PartidosJugados = partidos;
@@ -66,13 +66,13 @@ namespace formulario_login_
                     this.DialogResult = DialogResult.OK;
 
                 }
-                
+
             }
             else
             {
                 MessageBox.Show("ERROR CON LA ENTRADA DE DATOS", "ADVERTENCIA!!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            
+
         }
     }
 }

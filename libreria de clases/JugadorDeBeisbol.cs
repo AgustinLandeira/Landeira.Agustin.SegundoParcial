@@ -28,14 +28,14 @@ namespace libreria_de_clases
             this.accesorio = "se desconoce";
             this.vueltasMaximas = 0;
         }
-        public JugadorDeBeisbol(int partidosJugados, string nombre, string apellido, short años, EDeporte deporte)
-            :base(partidosJugados,nombre, apellido, años, deporte)
+        public JugadorDeBeisbol(int partidosJugados, string nombre,
+            string apellido, short años, EDeporte deporte):base(partidosJugados,nombre, apellido, años, deporte)
         {
             this.accesorio ="se desconoce";
             this.vueltasMaximas = 0;
         }
-        public JugadorDeBeisbol(int vueltasMaximas, int partidosJugados, string nombre, string apellido, short años, EDeporte deporte)
-            :this(partidosJugados,nombre, apellido, años, deporte)
+        public JugadorDeBeisbol(int vueltasMaximas, int partidosJugados,
+            string nombre, string apellido, short años, EDeporte deporte):this(partidosJugados,nombre, apellido, años, deporte)
         {
             this.vueltasMaximas = vueltasMaximas;
 
@@ -50,8 +50,8 @@ namespace libreria_de_clases
         /// <param name="apellido">apellido del jugador</param>
         /// <param name="años">edad el jugador</param>
         /// <param name="deporte">deporte que hace el jugador</param>
-        public JugadorDeBeisbol(string accesorio, int vueltasMaximas, int partidosJugados, string nombre, string apellido, short años, EDeporte deporte) 
-            :this(vueltasMaximas, partidosJugados,nombre, apellido, años, deporte)
+        public JugadorDeBeisbol(string accesorio, int vueltasMaximas,
+            int partidosJugados, string nombre, string apellido, short años, EDeporte deporte) :this(vueltasMaximas, partidosJugados,nombre, apellido, años, deporte)
         {
             this.accesorio = accesorio;
             
