@@ -23,8 +23,9 @@ La aplicación se centra en el registro de jugadores de varios deportes, como ba
 
 8. **Usuarios:** Puedes acceder a una sección de usuarios para ver quiénes han estado utilizando la aplicación recientemente.
 
-## Aclaracion
+## Aclaraciones!!!!!!
 los botones tanto como guardar datos y recuperar datos no se van a usar porque se guarda automaticamente en la base de datos y tambien se recupera automaticamente de la misma.
+Hay dos soluciones y la que hay q entrar es la de Landeira.Agustin que es la valida
 ## Diagrama de clases
 
 ## Clase base y sus derivadas
