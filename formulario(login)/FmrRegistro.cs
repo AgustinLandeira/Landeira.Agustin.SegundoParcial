@@ -54,6 +54,9 @@ namespace formulario_login_
             EmpezarCronometro();
         }
 
+        /// <summary>
+        /// crea el hilo y se ejecuta en segundo plano mientras no se cancele
+        /// </summary>
         private void EmpezarCronometro()
         {
             // con el task.run realizo la tarea en segundo plano
@@ -71,6 +74,10 @@ namespace formulario_login_
             }, this.cancellation);
         }
 
+        /// <summary>
+        /// se encarga de mostrar el cronometro en un formato especifico
+        /// </summary>
+        /// <param name="tiempo"></param>
         private void ActualizarTiempoTranscurrido(TimeSpan tiempo)
         {
 
@@ -87,18 +94,28 @@ namespace formulario_login_
             }
         }
 
-
+        /// <summary>
+        /// muestra  una notficacion sobre el uso de los perfiles
+        /// </summary>
+        /// <param name="notificacion"></param>
 
         public static void Notificar(string notificacion)
         {
             MessageBox.Show(notificacion, "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
-
+        /// <summary>
+        /// muestra el nombre del jugador que ya se agrego
+        /// </summary>
+        /// <param name="nombre"></param>
         public static void MostrarJugadorRepetido(string nombre)
         {
             MessageBox.Show(nombre, "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
+        /// <summary>
+        /// muestra un mensaje si se recibe un entero menor de 0
+        /// </summary>
+        /// <param name="mensaje"></param>
         public static void EdadInvalida(string mensaje)
         {
             MessageBox.Show(mensaje, "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Warning);

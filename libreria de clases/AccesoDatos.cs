@@ -25,7 +25,10 @@ namespace libreria_de_clases
         {
             this.conexion = new SqlConnection(AccesoDatos.cadena_conexion);
         }
-
+        /// <summary>
+        /// verifica si estamos conectados a la base de datos
+        /// </summary>
+        /// <returns></returns>
         public bool Conectado()
         {
             bool booleano = false;
@@ -48,6 +51,10 @@ namespace libreria_de_clases
             return booleano;
         }
 
+        /// <summary>
+        /// agregamos un jugador a la tabla de basquet
+        /// </summary>
+        /// <param name="j"></param>
         public void AgregarJugadorTabla(JugadorDeBasket j)
         {
             try
@@ -95,6 +102,10 @@ namespace libreria_de_clases
 
         }
 
+        /// <summary>
+        /// agregamos una fila a la tabla de futbolistas
+        /// </summary>
+        /// <param name="j"></param>
         public void AgregarJugadorTabla(JugadorDeFutbol j)
         {
             try
@@ -138,7 +149,10 @@ namespace libreria_de_clases
                 }
             }
         }
-
+        /// <summary>
+        /// agregamos una fila a la tabla_beisbolistas
+        /// </summary>
+        /// <param name="j"></param>
         public void AgregarJugadorTabla(JugadorDeBeisbol j)
         {
             try
@@ -183,6 +197,12 @@ namespace libreria_de_clases
             }
         }
 
+        /// <summary>
+        /// modificamos la fila de un jugador ya sea su nombre,apellido etc
+        /// </summary>
+        /// <param name="j"></param>
+        /// <param name="nombreOriginal"></param>
+        /// <param name="apellidoOriginal"></param>
         public void ModificarFila(Jugadores j,string nombreOriginal,string apellidoOriginal)
         {
             try
@@ -255,6 +275,10 @@ namespace libreria_de_clases
 
         }
 
+        /// <summary>
+        /// se encarga de eliminar una fila de la tabla de un jugador que eligimos
+        /// </summary>
+        /// <param name="j">el jugador a eliminar</param>
         public void EliminarFila(Jugadores j)
         {
             try
@@ -308,6 +332,14 @@ namespace libreria_de_clases
             
         }
 
+        /// <summary>
+        /// se encarga de traer los datos y guardarlos en una lista
+        /// </summary>
+        /// <param name="lista"></param>
+        /// <param name="jugadorBasket"></param>
+        /// <param name="JugadorFutbol"></param>
+        /// <param name="JugadorBeisbol"></param>
+        /// <returns>retornara una lista con los datos recuperados</returns>
         public List<Jugadores> RecuperarInformacion(List<Jugadores>lista,bool jugadorBasket,bool JugadorFutbol,bool JugadorBeisbol)
         {
             
@@ -396,6 +428,11 @@ namespace libreria_de_clases
             return lista;
         }
 
+        /// <summary>
+        /// devuelve un enumerado en especifico dependiendo que tipo de deporte sea
+        /// </summary>
+        /// <param name="reader"></param>
+        /// <returns></returns>
         public static EDeporte Enumerado(SqlDataReader reader)
         {
             if (reader["Deporte"].ToString() == "Futbol")
